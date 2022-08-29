@@ -1,0 +1,2 @@
+class InivitationsController < ApplicationController
+end
