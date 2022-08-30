@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    get 'users/', to: 'users/users#index', as: 'users'
-    get 'users/:id', to: 'users#show', as: 'user'
-  end
+  resources :users, only: %i[index show]
 
   root to: "pages#home"
 
