@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     get 'users/', to: 'users/users#index', as: 'users'
-    get 'users/:id', to: 'users/users#show', as: 'user'
+    get 'users/:id', to: 'users#show', as: 'user'
   end
-  
+
   root to: "pages#home"
 
   resources :chatrooms, only: %i[index show create new] do
     resources :invitations, only: %i[create]
   end
 
-  resources :trips, only: %i[index new create]
+  resources :trips, only: %i[index create]
 end

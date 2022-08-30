@@ -5,11 +5,6 @@ class TripsController < ApplicationController
     @trips = policy_scope(Trip)
   end
 
-  def new
-    @trip = Trip.new
-    authorize @trip
-  end
-
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
