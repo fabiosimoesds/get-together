@@ -1,0 +1,10 @@
+<h1>GET TOGETHER</h1>
+
+<ul>
+  <li>
+    <% @trips.each do |t| %>
+      <%= t.address %> <%= t.sport %>
+      <%= t.start_date %> <%= t.end_date %>
+    <% end %>
+  </li>
+</ul>
