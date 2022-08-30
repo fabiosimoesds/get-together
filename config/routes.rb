@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-
   resources :users, only: %i[index show]
 
   root to: "pages#home"
@@ -9,5 +8,5 @@ Rails.application.routes.draw do
     resources :invitations, only: %i[create]
   end
 
-  resources :trips, only: %i[index new create]
+  resources :trips, only: %i[index create]
 end
