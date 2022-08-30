@@ -5,4 +5,12 @@ class TripPolicy < ApplicationPolicy
     #   scope.where(user: user)
     # end
   end
+
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
 end
