@@ -1,23 +1,33 @@
 class TripsController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :set_trip
+  # before_action :set_trip, only: %i[]
 
   def index
-    @trips = Trip.all
-    authorize @trips
+    @trips = policy_scope(Trip)
   end
 
-  def show
-    authorize @trips
+  def new
+    @trip = Trip.new
+    authorize @trip
+  end
+
+  def create
+    @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    authorize @trip
+    if @trip.save
+      redirect_to trips_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
-  def set_trip
-    @trip = Trip.find(params[:id])
-  end
+  # def set_trip
+  #   @trip = Trip.find(params[:id])
+  # end
 
   def trip_params
-    params.require(:trip).permit(:address, :sport, :start_date, :end_date, :album)
+    params.require(:trip).permit(:address, :sport, :start_date, :end_date)
   end
 end
