@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    get 'users/', to: 'users/users#index', as: 'users'
-    get 'users/:id', to: 'users/users#show', as: 'user'
-  end
-  
+
+  resources :users, only: %i[index show]
+
   root to: "pages#home"
 
   resources :chatrooms, only: %i[index show create new] do
