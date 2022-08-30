@@ -1,0 +1,9 @@
+<p>CREATE A TRIP #TEST</p>
+
+<%= simple_form_for @trip do |t| %>
+  <%= t.input :address, placeholder: 'City, State and Country' %>
+  <%= t.input :sport %>
+  <%= t.input :start_date %>
+  <%= t.input :end_date %>
+  <%= t.submit %>
+<% end %>
