@@ -1,12 +1,22 @@
-<div class="container-xl">
+<div class="container-xl mt-2">
   <div class="row">
     <div class="col-3">
-      <% if @user.avatar.key %>
-        <%= cl_image_tag(@user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large") %>
+      <% if @user.banner.key %> <!-- min banner size height 500px width 1200px -->
+        <div class="mini-banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @user.banner.key, crop: :thumb, gravity: :face %>')"></div>
       <% else %>
-        <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" alt="">
+        <div class="mini-banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://fasttechnologies.com/wp-content/uploads/2017/01/placeholder-banner.png);"></div>
       <% end %>
-      <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+      <% if @user.avatar.key %>
+        <div class="text-center">
+          <%= cl_image_tag(@user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large position-relative avatar-position") %>
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-center"><img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large position-relative avatar-position" alt=""></div>
+      <% end %>
+      <h2><%= "#{@user.first_name} #{@user.last_name}" %><i class="fa-solid fa-pen-circle"></i></h2>
       <p><%= @user.bio %></p>
     </div>
     <div class="col-6 border-start border-end border-primary">
