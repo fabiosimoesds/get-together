@@ -1,1 +1,40 @@
-<h1>Some prof</h1>
+<div class="banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="other-profile-avatar">
+    <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-xlarge" alt="">
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 text-end">
+      <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <ul>
+        <li><%= @user.sport_one %></li>
+        <li><%= @user.sport_two %></li>
+        <li><%= @user.sport_three %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <p><%= @user.bio %></p>
+  </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 text-center">
+        <%= link_to 'Invite', '#', class: "rounded-pill my-button" %>
+      </div>
+      <div class="col-sm-12 col-md-6 text-center">
+        <%= link_to 'Favourite', '#', class: "border border-secondary rounded-pill my-button outline" %>
+      </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+    </div>
+    <div class="col-sm-12 col-md-6 border-start border-primary">
+      <h2>Albums</h2>
+    </div>
+  </div>
+</div>
