@@ -1,0 +1,23 @@
+.my-button {
+  width: 120px;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  background-color: $tiffany-blue;
+  &:hover{
+    color: white;
+    background-color: $deep-jungle-green;
+  }
+}
+
+.outline {
+  color: $tiffany-blue;
+  background-color: $light-gray;
+  &:hover{
+    color: $tiffany-blue;
+    background-color: rgb(223, 223, 223);
+  }
+}

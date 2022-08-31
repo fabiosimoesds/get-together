@@ -1,8 +1,5 @@
-
-<div class="container">
-  <% if @user == current_user %>
-    <%= render "shared/my_profile" %>
-  <% else %>
-    <%= render "shared/others_profile" %>
-  <% end %>
-</div>
+<% if @user == current_user %>
+  <%= render "shared/my_profile" %>
+<% else %>
+  <%= render "shared/others_profile" %>
+<% end %>
