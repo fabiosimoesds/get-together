@@ -82,3 +82,6 @@ end
 
 # Cloudinary to hold our uploaded pictures
 gem "cloudinary"
+
+# Geocoding
+gem "geocoder"

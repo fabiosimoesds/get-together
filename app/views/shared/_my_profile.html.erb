@@ -17,6 +17,7 @@
         <div class="text-center"><img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large position-relative avatar-position" alt=""></div>
       <% end %>
       <h2><%= "#{@user.first_name} #{@user.last_name}" %><i class="fa-solid fa-pen-circle"></i></h2>
+      <span class="material-symbols-outlined">skateboarding</span>
       <p><%= @user.bio %></p>
     </div>
     <div class="col-6 border-start border-end border-primary">
@@ -25,7 +26,14 @@
       <h2>Create your Trip</h2>
       <%= simple_form_for @trip do |t| %>
         <%= t.input :address, placeholder: 'City, State and Country' %>
-        <%= t.input :sport %>
+        <%= t.input :sport,
+                    as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    input_html: {class: 'category-selector'},
+                    collection: Trip::SPORTS %>
+                    <span class="material-symbols-outlined">skateboarding</span>
         <%= t.input :start_date %>
         <%= t.input :end_date %>
         <%= t.submit "Add Trip" %>
