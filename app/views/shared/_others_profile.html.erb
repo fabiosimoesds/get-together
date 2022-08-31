@@ -1,6 +1,15 @@
-<div class="banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+
+<% if @user.banner.key %> <!-- min banner size height 500px width 1200px -->
+  <div class="banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @user.banner.key, crop: :thumb, gravity: :face %>')">
+<% else %>
+  <div class="banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<% end %>
   <div class="other-profile-avatar">
-    <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-xlarge" alt="">
+          <% if @user.avatar.key %>
+        <%= cl_image_tag(@user.avatar.key, width: 120, height: 120, crop: :thumb, gravity: :face, class: "avatar-xlarge") %>
+      <% else %>
+        <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-xlarge" alt="">
+      <% end %>
   </div>
 </div>
 <div class="container mt-5">

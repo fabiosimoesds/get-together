@@ -1,7 +1,11 @@
 <div class="container-xl">
   <div class="row">
     <div class="col-3">
-      <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" alt="">
+      <% if @user.avatar.key %>
+        <%= cl_image_tag(@user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large") %>
+      <% else %>
+        <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" alt="">
+      <% end %>
       <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
       <p><%= @user.bio %></p>
     </div>
