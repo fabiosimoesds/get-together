@@ -11,6 +11,14 @@ class TripPolicy < ApplicationPolicy
   end
 
   def create?
-    true    
+    true
+  end
+
+  def search?
+    true
+  end
+
+  def show?
+    true
   end
 end
