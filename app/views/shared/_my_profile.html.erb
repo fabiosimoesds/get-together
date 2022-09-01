@@ -24,7 +24,11 @@
       <% @albums.each do |album| %>
         <%= link_to album_path(album) do %>
           <%= album.name %>
-          <%= cl_image_tag album.photos[0].key, height: 300, width: 400, crop: :fill %>
+          <% if album.photos.attached? %>
+            <%= cl_image_tag album.photos[0].key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
+          <% end %>
         <% end %>
       <% end %>
     </div>
