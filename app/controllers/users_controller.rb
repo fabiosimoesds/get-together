@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @trip = Trip.new
+    @albums = Album.all
     authorize @user
   end
 

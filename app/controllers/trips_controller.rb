@@ -10,6 +10,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
     authorize @trip
     if @trip.save
+      @album = Album.create!(name: "#{@trip.sport} in #{@trip.address}", trip: @trip)
       redirect_to trips_path
     else
       render :new, status: :unprocessable_entity
