@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 first_name = ['Jose', 'Mark', 'Belinda', 'Antonio', 'Ricky']
 last_name = ['Smith', 'Silva', 'Dornelles', 'Marino', 'Jackson', 'Blunt', 'Griffiths']
-address = ['Rio de Janeiro', 'San Diego', 'Chicago', 'Munich']
+address = ['Rio de Janeiro', 'San Diego']
 sport = ["Surfing", "Skateboarding", "Skiing/Snowboarding", "Mountain Bike", "Hiking", "Paragliding"]
 dob = [Date.today - 7200, Date.today - 5568, Date.today - 9510]
 start_date = [Date.today + 4, Date.today + 8, Date.today + 5]
