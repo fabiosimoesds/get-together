@@ -17,7 +17,7 @@ class TripsController < ApplicationController
   end
 
   def search
-    @trips = Trip.search_address(@trip.address)
+    @trips = Trip.near(@trip.address, 25)
     @trips = @trips.search_sport(@trip.sport)
     if params[:query].present?
       sql_query = <<~SQL

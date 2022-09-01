@@ -1,4 +1,5 @@
 <h1>Search filter test</h1>
+<% available = true%>
 
 
 <div class="container w-100" style="padding: 5px;">
@@ -9,12 +10,10 @@
              <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" alt="">
           </div>
           <div class="card-body col-9 d-flex justify-content-center bg-primary">
-          <%@trips.each do |trip|%>
-            <h2> Trip to <%= trip.address%></h2>
+            <h2> Trip to <%= @trip.address%></h2>
             <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#" %>
             <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
           </div>
-          <%end%>
       </div>
   </div>
 </div>
@@ -23,23 +22,32 @@
     <div class="row justify-content-start g-6">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
   <% @trips.map do |trip| %>
-          <div class="card mt-3 card-div" style="width: 18rem;">
-            <div class="d-flex justify-content-center mt-3">
-              <img class="place-holder-img avatar-large" src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" alt="">
-            </div>
-            <div class="box card-body">
-              <h6 class="text-center mt-3"><%= trip.user.first_name %> <%= trip.user.last_name %></h6>
-              <p class="card-text"><%= trip.sport %></p>
-              <div class="card-body d-flex">
-                <div class="col-6 d-flex justify-content-center">
-                  <a href="#" class="card-link btn btn-primary">Invite</a>
-                </div>
-                <div class="col-6 d-flex justify-content-center">
-                  <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a>
+        <%if trip.user != @trip.user%>
+          <% if trip.start_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime) || trip.end_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime)%>
+            <% available = true%>
+          <% else %>
+            <% available = false %>
+          <% end %>
+        <%end%>
+          <%if available %>
+            <div class="card mt-3 card-div" style="width: 18rem;">
+              <div class="d-flex justify-content-center mt-3">
+                <img class="place-holder-img avatar-large" src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" alt="">
+              </div>
+              <div class="box card-body">
+                <h6 class="text-center mt-3"><%= trip.user.first_name %> <%= trip.user.last_name %></h6>
+                <p class="card-text"><%= trip.sport %></p>
+                <div class="card-body d-flex">
+                  <div class="col-6 d-flex justify-content-center">
+                    <a href="#" class="card-link btn btn-primary">Invite</a>
+                  </div>
+                  <div class="col-6 d-flex justify-content-center">
+                    <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <%end%>
         </div>
     </div>
   <% end %>
