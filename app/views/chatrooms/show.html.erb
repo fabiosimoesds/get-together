@@ -12,8 +12,8 @@
   <div class="container message-text">
     <%= simple_form_for [@chatroom, @message],
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|%>
-    <%=f.input :content%>
-    <%=f.button "submit"%>
+    <%=f.input :content, :as => :text, :input_html => {:cols => 100, :rows => 2}%>
+    <%=f.button "submit", value: "Send", id:"send", class:"btn btn-primary rounded-pill"%>
     <%end%>
   </div>
 </div>
