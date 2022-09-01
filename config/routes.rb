@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: %i[index create show]
+  resources :albums, only: %i[show edit update]
 
   get '/search', to: 'trips#search', as: :search
 end

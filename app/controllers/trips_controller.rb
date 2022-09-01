@@ -10,6 +10,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
     authorize @trip
     if @trip.save
+      @album = Album.create!(name: "#{@trip.sport} in #{@trip.address}", trip: @trip)
       redirect_to trips_path
     else
       render :new, status: :unprocessable_entity
@@ -17,7 +18,7 @@ class TripsController < ApplicationController
   end
 
   def search
-    @trips = Trip.search_address(@trip.address)
+    @trips = Trip.near(@trip.address)
     @trips = @trips.search_sport(@trip.sport)
     if params[:query].present?
       sql_query = <<~SQL
