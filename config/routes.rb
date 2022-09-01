@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: %i[index show create new] do
     resources :invitations, only: %i[create]
+    resources :messages, only: %i[create]
   end
 
   resources :trips, only: %i[index create show]
