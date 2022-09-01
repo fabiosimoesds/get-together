@@ -17,6 +17,11 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(chatroom_params)
     authorize @chatroom
     if @chatroom.save
+      # @invitation = Invitation.new
+      # @invitation.chatroom = @chatroom
+      # @invitation.asker = current_user
+      # @invitation.receiver = params[:user]
+      # @invitation.save
       redirect_to chatroom_path(@chatroom)
     else
       render :new, status: :unprocessable_entity

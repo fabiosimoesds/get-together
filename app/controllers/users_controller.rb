@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @trip = Trip.new
     @albums = Album.all
+    @chatroom = Chatroom.new
     authorize @user
   end
 

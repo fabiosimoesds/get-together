@@ -3,6 +3,6 @@
 <%@trips.each do |trip|%>
   <div class="container", value='<%trip.id%>'>
     <%=trip.address%>
-    <%= link_to trip_path(trip) %>
+    <%= link_to 'Check out', trip_path(trip) %>
   </div>
 <%end%>

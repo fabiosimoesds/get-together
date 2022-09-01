@@ -18,10 +18,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Trips", "#", class: "nav-buttons nav-link bg-primary rounded-pill" %>
+            <%= link_to "Trips", trips_path , class: "nav-buttons nav-link bg-primary rounded-pill" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Trip Groups", "#", class: "nav-buttons nav-link bg-primary rounded-pill" %>
+            <%= link_to "Trip Groups", chatrooms_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
           </li>
           <li class="nav-item">
             <%= link_to "Inbox", "#", class: "nav-buttons nav-link bg-primary rounded-pill" %>

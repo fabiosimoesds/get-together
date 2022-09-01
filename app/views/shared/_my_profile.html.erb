@@ -21,16 +21,22 @@
       <p><%= @user.bio %></p>
     </div>
     <div class="col-6 border-start border-end border-primary">
-      <% @albums.each do |album| %>
-        <%= link_to album_path(album) do %>
-          <%= album.name %>
-          <% if album.photos.attached? %>
-            <%= cl_image_tag album.photos[0].key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
+      <div class="row">
+        <% @albums.each do |album| %>
+          <% if album.trip.user == current_user %>
+            <div class="col">
+              <%= link_to album_path(album) do %>
+                <%= album.name %>
+                <% if album.photos.attached? %>
+                  <%= cl_image_tag album.photos[0].key, height: 30, width: 40, crop: :fill %>
+                <% else %>
+                  <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="" class="album-card">
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <div class="col-3">
       <h2>Create your Trip</h2>

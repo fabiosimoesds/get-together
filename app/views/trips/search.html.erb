@@ -21,34 +21,35 @@
 <div class="container w-100">
     <div class="row justify-content-start g-6">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex">
-  <% @trips.map do |trip| %>
-        <%if trip.user != @trip.user%>
-          <% if trip.start_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime) || trip.end_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime)%>
-            <% available = true%>
-          <% else %>
-            <% available = false %>
-          <% end %>
-        <%end%>
-          <%if available %>
-            <div class="card mt-3 card-div" style="width: 18rem;">
-              <div class="d-flex justify-content-center mt-3">
-                <img class="place-holder-img avatar-large" src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" alt="">
-              </div>
-              <div class="box card-body">
-                <h6 class="text-center mt-3"><%= trip.user.first_name %> <%= trip.user.last_name %></h6>
-                <p class="card-text"><%= trip.sport %></p>
-                <div class="card-body d-flex">
-                  <div class="col-6 d-flex justify-content-center">
-                    <a href="#" class="card-link btn btn-primary">Invite</a>
-                  </div>
-                  <div class="col-6 d-flex justify-content-center">
-                    <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a>
-                  </div>
+          <% @trips.map do |trip| %>
+                <%if trip.user != @trip.user%>
+                  <% if trip.start_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime) || trip.end_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime)%>
+                    <% available = true%>
+                  <% else %>
+                    <% available = false %>
+                  <% end %>
+                <%end%>
+                  <%if available %>
+                    <div class="card mt-3 card-div" style="width: 18rem;">
+                      <div class="d-flex justify-content-center mt-3">
+                        <img class="place-holder-img avatar-large" src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" alt="">
+                      </div>
+                      <div class="box card-body">
+                        <h6 class="text-center mt-3"><%= trip.user.first_name %> <%= trip.user.last_name %></h6>
+                        <p class="card-text"><%= trip.sport %></p>
+                        <div class="card-body d-flex">
+                          <div class="col-6 d-flex justify-content-center">
+                            <%= link_to 'Invite', user_path(trip.user), class: "card-link btn btn-primary"%>
+                          </div>
+                          <div class="col-6 d-flex justify-content-center">
+                            <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <%end%>
                 </div>
-              </div>
-            </div>
-          <%end%>
+            <% end %>
         </div>
     </div>
-  <% end %>
 </div>
