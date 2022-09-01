@@ -1,6 +1,7 @@
 <div class="container">
   <%= simple_form_for @chatroom do |f| %>
   <%= f.input :name %>
+  <%= f.input :user, :as => :hidden, :input_html => { :value => params[:user] } %>
   <%= f.submit %>
   <% end %>
 </div>
