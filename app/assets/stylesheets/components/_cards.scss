@@ -1,8 +1,8 @@
 // Album Cards
 
 .album-card {
-  height: 150px;
-  width: 200px;
+  height: 180px;
+  width: 250px;
   object-fit: cover;
   a{
     text-decoration: none;
@@ -48,4 +48,20 @@
 
 .trip-form {
   border-radius: 15px;
+}
+
+.chatroom-list{
+  list-style: none;
+  width: 200px;
+  height: 1.5rem;
+  background-color: $tiffany-blue;
+  margin-top: 2px;
+  margin-left: 2px;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: $deep-green;
+  }
 }
