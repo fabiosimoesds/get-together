@@ -15,8 +15,10 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    user = @album.user
     authorize @album
     @album.destroy
+    redirect_to user_path(user), status: :see_other
   end
 
   private
