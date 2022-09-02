@@ -1,9 +1,12 @@
 // Album Cards
 
 .album-card {
-  height: 200px;
+  height: 150px;
   width: 200px;
   object-fit: cover;
+  a{
+    text-decoration: none;
+  }
 }
 
 #search-card {
@@ -12,4 +15,28 @@
 
 #search-card:hover {
   transform: translateY(-15px);
+}
+
+.card-albums {
+  border-radius: 15px;
+  text-align: center;
+  background: white;
+  text-align: -webkit-center;
+  p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 150px;
+    margin-bottom: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+.trip-form {
+  border-radius: 15px;
 }
