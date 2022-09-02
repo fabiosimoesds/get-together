@@ -1,9 +1,13 @@
 <div class="container">
-  <% @chatrooms.each do |chatroom| %>
-    <% chatroom.invitations.each do |invitation| %>
-      <% if invitation.asker == current_user || invitation.receiver == current_user %>
-        <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <ul>
+      <% @chatrooms.each do |chatroom| %>
+        <% chatroom.invitations.each do |invitation| %>
+          <% if invitation.asker == current_user || invitation.receiver == current_user %>
+          <div class="chatroom-list">
+            <li><%= link_to chatroom.name, chatroom_path(chatroom) %></li>
+          </div>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    </ul>
 </div>
