@@ -11,5 +11,14 @@
 }
 
 #search-card:hover {
-  transform: translateY(-15px);
+  transform: translateY(-2px);
+}
+
+#bordenha {
+  border-radius: 10px;
+  padding-left: 0;
+}
+
+#banner-image > img {
+  border-radius: 0 10px 10px 0;
 }
