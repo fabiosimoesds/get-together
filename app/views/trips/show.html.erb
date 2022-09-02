@@ -1,4 +1,11 @@
-<div class="container">
-  <%=@trip.address%>
-  <%= link_to 'search', search_path(@trip) %>
+<div class="row">
+  <div class="col-12 shadow">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Trip to: <%=@trip.address%></h5>
+        <p class="card-text">Click the button to find buddies!</p>
+        <%= link_to 'Find buddies!', search_path(@trip), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
