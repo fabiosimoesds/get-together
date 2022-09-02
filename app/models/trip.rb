@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
 
   SPORTS = ["Surfing", "Skateboarding", "Skiing/Snowboarding", "Mountain Bike", "Hiking", "Paragliding"]
 
-  has_one :album
+  has_one :album, dependent: :destroy
   # validates :album, presence: true
   # has_many :photos, through: :albums
 
