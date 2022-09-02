@@ -1,5 +1,9 @@
 <div class="container">
   <% @chatrooms.each do |chatroom| %>
-    <%= link_to chatroom.name, chatroom_path(chatroom) %>
+    <% chatroom.invitations.each do |invitation| %>
+      <% if invitation.asker == current_user || invitation.receiver == current_user %>
+        <%= link_to chatroom.name, chatroom_path(chatroom) %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

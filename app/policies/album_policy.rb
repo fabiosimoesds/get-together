@@ -15,6 +15,10 @@ class AlbumPolicy < ApplicationPolicy
   end
 
   def update?
-    record.trip.user == user
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end

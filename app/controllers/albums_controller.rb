@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: %i[show edit update]
+  before_action :set_album, only: %i[show edit update destroy]
   def show
     authorize @album
   end
@@ -12,6 +12,11 @@ class AlbumsController < ApplicationController
     authorize @album
     @album.update(album_params)
     redirect_to album_path(@album)
+  end
+
+  def destroy
+    authorize @album
+    @album.destroy
   end
 
   private

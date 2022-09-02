@@ -10,7 +10,13 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    if record.invitations.empty?
+      false
+    else
+      record.invitations.each do |invitation|
+        true if invitation.asker == user || invitation.receiver == user
+      end
+    end
   end
 
   def new?

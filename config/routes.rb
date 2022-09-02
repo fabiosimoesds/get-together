@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: %i[index create show]
-  resources :albums, only: %i[show edit update]
+  resources :albums, only: %i[show edit update destroy]
 
   get '/search', to: 'trips#search', as: :search
 end
