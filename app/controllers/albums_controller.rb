@@ -21,6 +21,15 @@ class AlbumsController < ApplicationController
     redirect_to user_path(user), status: :see_other
   end
 
+  # def delete_image_attachment
+  #   @album = Album.first
+  #   @user = current_user
+  #   @image = ActiveStorage::Blob.find_signed(params[:id])
+  #   raise
+  #   authorize @album
+  #   @image.purge
+  # end
+
   private
 
   def set_album
