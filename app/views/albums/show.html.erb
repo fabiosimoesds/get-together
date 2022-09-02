@@ -1,10 +1,12 @@
-<% if @album.photos.attached? %>
-  <% @album.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <%# <%= link_to 'Delete Photo', delete_image_attachment_album_path(photo.signed_id), data: {turbo_method: :delete, turbo_confirm: "Are you sure"}  %>
+<div class="container">
+  <% if @album.photos.attached? %>
+    <% @album.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <%= link_to 'Delete Photo', delete_image_attachment_album_path(photo.signed_id), data: {turbo_method: :delete, turbo_confirm: "Are you sure"}  %>
+    <% end %>
+  <% else %>
+    <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
   <% end %>
-<% else %>
-  <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
-<% end %>
-<%= link_to 'Add Photos', edit_album_path(@album) %>
-<%= link_to 'Delete', album_path(@album), data: { turbo_method: :delete, turbo_confirm: "You won`t be able to RECOVER the album, are you sure you want to Delete?" } %>
+  <%= link_to 'Add Photos', edit_album_path(@album) %>
+  <%= link_to 'Delete', album_path(@album), data: { turbo_method: :delete, turbo_confirm: "You won`t be able to RECOVER the album, are you sure you want to Delete?" } %>
+</div>

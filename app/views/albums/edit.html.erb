@@ -1,4 +1,6 @@
-<%= simple_form_for(@album) do |f| %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for(@album) do |f| %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
