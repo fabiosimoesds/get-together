@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @trip = Trip.new
-    @albums = Album.all
+    @albums = Album.all.select { |album| album.trip.user == User.find(params[:id]) }
     @chatroom = Chatroom.new
     authorize @user
   end

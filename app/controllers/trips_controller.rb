@@ -13,7 +13,7 @@ class TripsController < ApplicationController
       @album = Album.create!(name: "#{@trip.sport} in #{@trip.address}", trip: @trip)
       redirect_to trips_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to user_path(current_user), status: :unprocessable_entity
     end
   end
 
