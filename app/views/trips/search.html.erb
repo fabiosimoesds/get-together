@@ -9,17 +9,36 @@
 </div>
 
 
-
-<div class="container w-100" style="padding: 5px;">
-  <div class="row w-100">
-      <div class="card-product col d-flex justify-content-center shadow">
-          <div class="col-3 d-flex justify-content-center bg-success">
-             <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="trip-img" alt="">
+<div id="" class="container w-100 mb-7" style="padding: 5px;">
+  <div class="row">
+      <div id="bordenha" class="card-product col d-flex justify-content-center shadow" style="margin-bottom: 20px;">
+          <div class="col-4 d-flex justify-content-center bg-primary" style="border-radius: 10px;">
+            <div class="row">
+              <div class="col-12 display-inline text-white ps-5 mt-2"><h2><%= @trip.address%></h2></div>
+              <div class="col-12 display-inline text-white ps-5"><p>From: <%= @trip.start_date %></p>
+                <p>To: <%= @trip.end_date %></p>
+              </div>
+            </div>
+           <%if @trip.user.avatar.key%>
+                <%= cl_image_tag(@trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large position-relative avatar-position", id: "profile-img-search") %>
+            <%else %>
+             <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="profile-img-banner" alt="">
+            <%end%>
           </div>
-          <div class="card-body col-9 d-flex justify-content-center bg-primary">
-            <h2> Trip to <%= @trip.address%></h2>
-            <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#" %>
-            <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
+          <div id="banner-image" class="card-body col-8 d-flex justify-content-center bg-primary">
+          <%if @trip.sport == "Surfing"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132734/development/surfing_3_pa7grz.jpg" alt="">
+          <%elsif @trip.sport == "Skateboarding"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132758/development/banner-sakte_hdolgx.jpg" alt="">
+          <%elsif @trip.sport == "Hiking"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132743/development/hikking_2_akq5yy.jpg" alt="">
+          <%elsif @trip.sport == "Skiing/Snowboarding"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132759/development/skiing_2_da5gzs.jpg" alt="">
+          <%elsif @trip.sport == "Paragliding"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132761/development/paragliding_1_xkjskz.jpg" alt="">
+          <%else @trip.sport == "Mountain Bike"%>
+            <img src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill,g_auto,h_150,w_910/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132761/development/bike_2_rura79.jpg" alt="">
+          <%end%>
           </div>
       </div>
   </div>
