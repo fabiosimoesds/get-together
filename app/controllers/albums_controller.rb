@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: %i[show edit update]
+  before_action :set_album, only: %i[show edit update destroy]
   def show
     authorize @album
   end
@@ -13,6 +13,22 @@ class AlbumsController < ApplicationController
     @album.update(album_params)
     redirect_to album_path(@album)
   end
+
+  def destroy
+    user = @album.user
+    authorize @album
+    @album.destroy
+    redirect_to user_path(user), status: :see_other
+  end
+
+  # def delete_image_attachment
+  #   @album = Album.first
+  #   @user = current_user
+  #   @image = ActiveStorage::Blob.find_signed(params[:id])
+  #   raise
+  #   authorize @album
+  #   @image.purge
+  # end
 
   private
 

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :trips
   has_many :invitations_as_asker, class_name: "invitation", foreign_key: :asker_id
   has_many :invitations_as_receiver, class_name: "invitation", foreign_key: :receiver_id
+  has_many :albums_as_owner, through: :trips, source: :albums
 
   has_one_attached :avatar
   has_one_attached :banner

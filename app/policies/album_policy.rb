@@ -15,6 +15,14 @@ class AlbumPolicy < ApplicationPolicy
   end
 
   def update?
-    record.trip.user == user
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
+  def delete_image_attachment?
+    true
   end
 end
