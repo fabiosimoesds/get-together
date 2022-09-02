@@ -5,3 +5,11 @@
   width: 200px;
   object-fit: cover;
 }
+
+#search-card {
+  transition-duration: 0.2s;
+}
+
+#search-card:hover {
+  transform: translateY(-15px);
+}
