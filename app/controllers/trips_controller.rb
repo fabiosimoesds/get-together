@@ -3,6 +3,13 @@ class TripsController < ApplicationController
 
   def index
     @trips = policy_scope(Trip)
+    @markers = @trips.geocoded.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {trip: trip})
+      }
+    end
   end
 
   def create

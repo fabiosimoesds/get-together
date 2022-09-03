@@ -24,6 +24,15 @@
       <p><%= @user.bio %></p>
     </div>
     <div class="col-6 border-start border-end border-primary">
+
+    <%# MAP %>
+      <div id='map' class="mb-3 rounded-3" style="width: 100%; height: 400px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
+    <%# Albums Card %>
       <div class="container card-albums">
         <div class="row">
           <% @albums.first(4).each do |album| %>
@@ -47,7 +56,9 @@
       <div class="container bg-white py-3 trip-form">
         <h2 class="text-center">Create your Trip</h2>
         <%= simple_form_for @trip do |t| %>
-          <%= t.input :address, placeholder: 'City, State and Country', class: 'form-control' %>
+          <%= t.input :address,
+                      input_html: {data: {address_autocomplete_target: "address"}, class: 'd-none'},
+                      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= t.input :sport,
                       as: :radio_buttons,
                       collection_wrapper_tag: 'div',

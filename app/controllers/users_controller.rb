@@ -8,6 +8,14 @@ class UsersController < ApplicationController
 
   def show
     @trip = Trip.new
+    @trips = Trip.where(user: User.find(params[:id]))
+    @markers = @trips.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude,
+        info_window: render_to_string(partial: "trips/info_window", locals: {trip: trip})
+      }
+    end
     @albums = Album.all.select { |album| album.trip.user == User.find(params[:id]) }
     @chatroom = Chatroom.new
     authorize @user
