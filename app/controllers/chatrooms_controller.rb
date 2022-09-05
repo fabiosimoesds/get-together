@@ -24,7 +24,7 @@ class ChatroomsController < ApplicationController
       @invitation.asker = current_user
       @invitation.receiver = @user
       @invitation.save!
-      InvitationNotification.with(invitation: " to #{@chatroom.name} Chatroom").deliver(@user)
+      InvitationNotification.with(invitation: " to #{@chatroom.name} Chatroom", id: @invitation).deliver(@user)
       NotificationChannel.broadcast_to(
         @user,
         Notification.last.params[:invitation]

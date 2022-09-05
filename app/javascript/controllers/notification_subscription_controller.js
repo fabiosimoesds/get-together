@@ -8,8 +8,12 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "NotificationChannel", id: this.userIdValue },
-      { received: data => console.log(data) }
+      { received: data => this.#insertNotificationDot() }
     )
     console.log(`Subscribe to the user with the id ${this.userIdValue}.`)
+  }
+
+  #insertNotificationDot() {
+    this.notifyTarget.classList.add('active')
   }
 }

@@ -23,8 +23,9 @@
           <li class="nav-item">
             <%= link_to "Trip Groups", chatrooms_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill", data: { notification_subscription_target: "notify"} %>
+          <li class="nav-item position-relative">
+            <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
+            <div class="notification" data-notification-subscription-target="notify"></div>
           </li>
         <% end %>
       </ul>

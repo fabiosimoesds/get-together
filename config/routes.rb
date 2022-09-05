@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :notifications, only: :index
 
+  resources :invitations, only: %i[update]
+
   root to: "pages#home"
 
   resources :chatrooms, only: %i[index show create new] do

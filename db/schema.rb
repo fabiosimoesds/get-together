@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_130943) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_190605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,12 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_130943) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.string "confirmation"
     t.bigint "chatroom_id", null: false
     t.bigint "asker_id"
     t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmation"
     t.index ["asker_id"], name: "index_invitations_on_asker_id"
     t.index ["chatroom_id"], name: "index_invitations_on_chatroom_id"
     t.index ["receiver_id"], name: "index_invitations_on_receiver_id"

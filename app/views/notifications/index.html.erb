@@ -2,6 +2,20 @@
   <h1>Teste</h1>
 
   <% @notifications.each do |notification| %>
-    <%= notification.params[:invitation] %>
+      <% @invitation = notification.params[:id] %>
+      <% if @invitation %>
+        <%= notification.params[:invitation] %>
+        <%= simple_form_for @invitation do |f| %>
+          <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
+          <%= f.submit 'Confirm' %>
+        <% end %>
+        <%= simple_form_for @invitation do |f| %>
+          <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
+          <%= f.submit 'Reject' %>
+        <% end %>
+      <% else %>
+        <%= notification.params[:note] %>
+      <% end %>
   <% end %>
 </div>
+
