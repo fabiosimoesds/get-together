@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show edit update]
 
+  resources :notifications, only: :index
+
   root to: "pages#home"
 
   resources :chatrooms, only: %i[index show create new] do

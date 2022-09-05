@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="notification-subscription" data-notification-subscription-user-id-value="<%= current_user.id if current_user %>">
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "navbar-brand" do %>
@@ -24,7 +24,7 @@
             <%= link_to "Trip Groups", chatrooms_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Inbox", "#", class: "nav-buttons nav-link bg-primary rounded-pill" %>
+            <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill", data: { notification_subscription_target: "notify"} %>
           </li>
         <% end %>
       </ul>

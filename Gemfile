@@ -88,3 +88,6 @@ gem "cloudinary"
 
 # Geocoding
 gem "geocoder"
+
+# Gem to help with Notification
+gem "noticed", "~> 1.5"

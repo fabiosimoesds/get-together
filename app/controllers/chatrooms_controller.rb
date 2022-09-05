@@ -23,7 +23,12 @@ class ChatroomsController < ApplicationController
       @invitation.chatroom = @chatroom
       @invitation.asker = current_user
       @invitation.receiver = @user
-      @invitation.save
+      @invitation.save!
+      InvitationNotification.with(invitation: " to #{@chatroom.name} Chatroom").deliver(@user)
+      NotificationChannel.broadcast_to(
+        @user,
+        Notification.last.params[:invitation]
+      )
       redirect_to chatroom_path(@chatroom)
     else
       render :new, status: :unprocessable_entity
