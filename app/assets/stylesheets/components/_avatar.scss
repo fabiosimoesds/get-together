@@ -54,17 +54,35 @@
 #profile-img-banner {
     vertical-align: middle;
     position: relative;
-    transform: translateX(49px);
     width: 152px;
     height: 127px;
-    top: 27px;
+    top: -94%;
+    left: 82%;
 }
 
+
 #profile-img-search {
-  vertical-align: middle;
-  position: relative;
-  transform: translateX(49px);
-  width: 152px;
-  height: 127px;
-  top: 12px;
+    vertical-align: middle;
+    position: relative;
+    width: 152px;
+    height: 127px;
+    top: -50%;
+    left: 72%;
+}
+
+
+
+@media screen and (max-width: 767px) {
+	#profile-img-banner {
+		display: none;
+	}
+  #profile-img-search {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+	#profile-img-banner {
+		left: 73%;
+	}
 }

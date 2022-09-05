@@ -20,10 +20,14 @@
 #bordenha {
   border-radius: 10px;
   padding-left: 0;
+  padding-right: 0;
+  height: 200px;
 }
 
 #banner-image > img {
   border-radius: 0 10px 10px 0;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-albums {
