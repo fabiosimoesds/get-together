@@ -16,9 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body>
+    <div class="d-flex flex-column min-vh-100">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <article class="flex-grow-1">
+        <%= yield %>
+      </article>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
