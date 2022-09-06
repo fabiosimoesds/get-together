@@ -9,6 +9,28 @@
   }
 }
 
+.card-albums {
+  border-radius: 15px;
+  text-align: center;
+  background: white;
+  text-align: -webkit-center;
+  p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 150px;
+    margin-bottom: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+// Seacrch-card
+
 #search-card {
   transition-duration: 0.2s;
 }
@@ -30,29 +52,7 @@
   width: 100%;
 }
 
-.card-albums {
-  border-radius: 15px;
-  text-align: center;
-  background: white;
-  text-align: -webkit-center;
-  p{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 1.5rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    width: 150px;
-    margin-bottom: 0;
-  }
-  a{
-    text-decoration: none;
-  }
-}
-
-.trip-form {
-  border-radius: 15px;
-}
+// Chatroom cards
 
 .chatroom-list{
   list-style: none;
@@ -77,15 +77,31 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  }
+// Notification Cards
+
+.card-align{
+  text-align: -webkit-center;
 }
 
-.card-homepg img {
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.accepted {
   height: 100%;
-  width: 120px;
-  object-fit: cover;
+  width: 100%;
 }
 
-.card-homepg h2 {
+.card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
@@ -99,6 +115,69 @@
   margin-top: 8px;
 }
 
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
 .card-homepg .card-infos-home {
   padding: 16px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+@media only screen and (max-width: 995px) {
+  .card-product{
+    width: 70%;
+  }
+
+  .accepted {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .card-product{
+    height: 190px;
+    width: 70%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .accepted {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .card-product h2{
+    display: none;
+  }
+  .card-product{
+    height: 190px;
+    width: 100%;
+  }
+}
+
+// Card for Albums index (all albums)
+
+#albums-card:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+.card-homepg img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-homepg h2 {
+  width: 50%;
+  text-align: start;
+  border-radius: 5px;
 }

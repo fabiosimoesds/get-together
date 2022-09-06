@@ -1,13 +1,26 @@
+
 <div class="container">
+    <% @albums.each do |a| %>
   <div class="row">
-    <ul>
-      <% @albums.each do |a| %>
-        <% if a.trip.user == current_user %>
-        <li>
-          <%= link_to a.trip.address, album_path(a) %> <%= a.id %>
-        </li>
-        <% end %>
+      <% if a.trip.user == current_user %>
+        <div class="card bg-dark text-white col-12">
+           <% if a.photos.attached? %>
+              <% a.photos.order("created_at DESC").first do |photo| %>
+                <div class="row">
+                  <%= cl_image_tag photo.key, style: 'width: auto;' %>
+                </div>
+              <% end %>
+            <% else %>
+              <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
+            <% end %>
+          <div class="card-img-overlay">
+            <h5 class="card-title"> <%= link_to a.trip.address, album_path(a) %> </h5>
+            <p class="card-text">
+            From: <%= a.trip.start_date %> to <%= a.trip.end_date %>
+            </p>
+          </div>
+        </div>
       <% end %>
-    </ul>
-  </div>
+ </div>
+    <% end %>
 </div>

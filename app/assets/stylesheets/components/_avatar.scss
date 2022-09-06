@@ -44,33 +44,13 @@
   border: 3px solid $light-gray;
 }
 
-#trip-img {
-  vertical-align: middle;
-  position: relative;
-  transform: translateX(32px);
-  width: 157px;
+#profile-img-banner{
+  left: 79%;
+  top: -88%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
-
-#profile-img-banner {
-    vertical-align: middle;
-    position: relative;
-    width: 152px;
-    height: 127px;
-    top: -94%;
-    left: 82%;
-}
-
-
-#profile-img-search {
-    vertical-align: middle;
-    position: relative;
-    width: 152px;
-    height: 127px;
-    top: -50%;
-    left: 72%;
-}
-
-
 
 @media screen and (max-width: 767px) {
 	#profile-img-banner {

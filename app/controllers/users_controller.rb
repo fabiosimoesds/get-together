@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @trip = Trip.new
+    @chatroom = Chatroom.new
     @trips = Trip.where(user: User.find(params[:id]))
     @markers = @trips.map do |trip|
       {
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
       }
     end
     @albums = Album.all.select { |album| album.trip.user == User.find(params[:id]) }
-    @chatroom = Chatroom.new
     authorize @user
   end
 
