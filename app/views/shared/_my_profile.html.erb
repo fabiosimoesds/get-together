@@ -47,7 +47,7 @@
               <% end %>
             </div>
           <% end %>
-          <%= link_to "See all Albums", '#', class: "btn btn-primary text-white" %>
+          <%= link_to "See all Albums", albums_path, class: "btn btn-primary text-white" %>
         </div>
       </div>
     </div>
@@ -67,11 +67,11 @@
                       input_html: {class: 'category-selector'},
                       collection: Trip::SPORTS %>
           <div class="row">
-            <div class="col-6">
-              <%= t.input :start_date, as: :date, html5: true, class: 'form-control' %>
+            <div class="col-12">
+              <%= t.input :start_date, as: :string, input_html: { id: "range_start" } %>
             </div>
-            <div class="col-6">
-              <%= t.input :end_date, as: :date, html5: true , class: 'form-control' %>
+            <div class="col-12">
+              <%= t.input :end_date, as: :string, input_html: { id: "range_end" } %>
             </div>
           </div>
           <div class="text-center">

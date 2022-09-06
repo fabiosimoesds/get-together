@@ -24,3 +24,18 @@
 .navbar-lewagon-white {
   background-color: white;
 }
+
+.notification {
+  background-color: red;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  right: -2px;
+  display: none;
+}
+
+.active {
+  display: inline;
+}

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show edit update]
 
+  resources :notifications, only: :index
+
+  resources :invitations, only: %i[update]
+
   root to: "pages#home"
 
   resources :chatrooms, only: %i[index show create new] do
@@ -10,9 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: %i[index create show]
-  resources :albums, only: %i[show edit update destroy] do
+  resources :albums, only: %i[index show edit update destroy] do
     member do
-      delete :delete_image_attachment
+      delete :delete_photo_attachment
     end
   end
 

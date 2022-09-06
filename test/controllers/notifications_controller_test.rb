@@ -1,6 +1,6 @@
 require "test_helper"
 
-class InivitationsControllerTest < ActionDispatch::IntegrationTest
+class NotificationsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

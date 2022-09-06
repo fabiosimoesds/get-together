@@ -21,3 +21,6 @@ application.register("navbar", NavbarController)
 
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
+
+import NotificationSubscriptionController from "./notification_subscription_controller"
+application.register("notification-subscription", NotificationSubscriptionController)
