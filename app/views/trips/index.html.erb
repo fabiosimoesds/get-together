@@ -1,6 +1,6 @@
 
 <div id="" class="container w-100 mb-7" style="padding: 5px;">
-<h1 class="text-center">My sweet trips</h1>
+  <h1 class="text-center">My sweet trips</h1>
 <%# MAP %>
 
 <div id='map' class="mb-3 rounded-3" style="width: 100%; height: 400px;"
@@ -8,41 +8,42 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<%# Trip Cards %>
   <div class="row">
     <% @trips.each do |trip| %>
-      <div id="bordenha" class="card-product col-12 d-flex justify-content-center shadow" style="margin-bottom: 20px;">
+      <div id="bordenha" class="col-12 d-flex justify-content-center shadow" style="margin-bottom: 20px;">
           <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary" style="border-radius: 14px 0 0 14px;">
-            <div class="row">
+            <div class="row position relative">
               <div class="col-12 display-inline text-white ps-5 mt-2"><h2><%= trip.address%></h2></div>
               <div class="col-12 display-inline text-white ps-5"><p>From: <%= trip.start_date %></p>
                 <p>To: <%= trip.end_date %></p>
                 <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", style: "border-radius: 12px; margin-bottom: 9px;" %>
+                <div class="col-12 text-white ps-15">
+                <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-secondary", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
+                <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#", class: "text-secondary" %>
+                </div>
               </div>
-            <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#", style: "transform: translate(238px, -18px);", class: "text-secondary" %>
-            <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", style: "transform: translate(261px, -42px);", class: "text-secondary", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
             </div>
             <%if trip.user.avatar.key%>
-                <%= cl_image_tag(trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large position-relative avatar-position", id: "profile-img-banner") %>
+                <%= cl_image_tag(trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "position-relative avatar-position", id: "profile-img-banner") %>
             <%else %>
              <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="profile-img-banner" alt="">
             <%end%>
           </div>
 
-          <div id="banner-image" class="card-body col-lg-8 col-md-6 col-sm-4 d-flex justify-content-center bg-primary" style="border-radius: 0 14px 14px 0">
+          <div id="banner-image" class="col-lg-8 col-md-6 col-sm-4 d-flex justify-content-center bg-primary" style="border-radius: 0 14px 14px 0">
           <%# PUT THE CODE BELOW INTO A PARTIAL AND USE CASE WHEN %>
           <%if trip.sport == "Surfing"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132734/development/surfing_3_pa7grz.jpg" alt="">
+            <%= cl_image_tag("surfing_3_pa7grz", crop: :fill)%>
           <%elsif trip.sport == "Skateboarding"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132758/development/banner-sakte_hdolgx.jpg" alt="">
+            <%= cl_image_tag("banner-sakte_hdolgx", crop: :fill)%>
           <%elsif trip.sport == "Hiking"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132743/development/hikking_2_akq5yy.jpg" alt="">
+             <%= cl_image_tag("hikking_2_akq5yy", crop: :fill)%>
           <%elsif trip.sport == "Skiing/Snowboarding"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132759/development/skiing_2_da5gzs.jpg" alt="">
+            <%= cl_image_tag("skiing_2_da5gzs", crop: :fill)%>
           <%elsif trip.sport == "Paragliding"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132761/development/paragliding_1_xkjskz.jpg" alt="">
+            <%= cl_image_tag("paragliding_1_xkjskz", crop: :fill)%>
           <%else trip.sport == "Mountain Bike"%>
-            <img class="img-fluid" src="https://res.cloudinary.com/dr1gsplto/image/upload/c_fill/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative/v1662132761/development/bike_2_rura79.jpg" alt="">
+            <%= cl_image_tag("bike_2_rura79", crop: :fill)%>
           <%end%>
           </div>
       </div>
