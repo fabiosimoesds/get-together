@@ -1,6 +1,7 @@
 <%= simple_form_for @chatroom do |f| %>
   <%= f.input :name %>
   <%= f.input :user, :as => :hidden, :input_html => { :value => params[:id] } %>
+  <% raise %>
   <div class="modal-footer">
     <%= f.submit "Create Chatroom", class: "btn btn-primary"%>
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
