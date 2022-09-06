@@ -1,51 +1,50 @@
 
 <div id="" class="container w-100 mb-7" style="padding: 5px;">
   <h1 class="text-center">My sweet trips</h1>
-  <%# MAP %>
+<%# MAP %>
 
-  <div id='map' class="mb-3 rounded-3" style="width: 100%; height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<div id='map' class="mb-3 rounded-3" style="width: 100%; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <div class="row">
     <% @trips.each do |trip| %>
       <div id="bordenha" class="col-12 d-flex justify-content-center shadow" style="margin-bottom: 20px;">
-        <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary" style="border-radius: 14px 0 0 14px;">
-          <div class="row position-relative">
-            <div class="col-12 display-inline text-white ps-5 mt-2"><h2><%= trip.address%></h2></div>
-            <div class="col-12 display-inline text-white ps-5"><p>From: <%= trip.start_date %></p>
+          <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary" style="border-radius: 14px 0 0 14px;">
+            <div class="row position relative">
+              <div class="col-12 display-inline text-white ps-5 mt-2"><h2><%= trip.address%></h2></div>
+              <div class="col-12 display-inline text-white ps-5"><p>From: <%= trip.start_date %></p>
                 <p>To: <%= trip.end_date %></p>
-                <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", style: "border-radius: 12px; margin-bottom: 9px;"%>
-            </div>
-            <%=link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#", class: "text-secondary p-0"%>
-            <%=link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-secondary p-0", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}%>
+                <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", style: "border-radius: 12px; margin-bottom: 9px;" %>
+            <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#", class: "text-secondary" %>
+            <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-secondary", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
+              </div>
             </div>
             <%if trip.user.avatar.key%>
                 <%= cl_image_tag(trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large position-relative avatar-position", id: "profile-img-banner") %>
-            <%else%>
-                <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="profile-img-banner" alt="">
+            <%else %>
+             <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="profile-img-banner" alt="">
             <%end%>
           </div>
 
-          <div id="banner-image" class="card-body col-lg-8 col-md-6 col-sm-4 d-flex justify-content-center" style="border-radius: 0 14px 14px 0">
-            <%if trip.sport == "Surfing"%>
-              <%= cl_image_tag("surfing_3_pa7grz", crop: :fill)%>
-            <%elsif trip.sport == "Skateboarding"%>
-              <%= cl_image_tag("banner-sakte_hdolgx", crop: :fill)%>
-            <%elsif trip.sport == "Hiking"%>
-              <%= cl_image_tag("hikking_2_akq5yy", crop: :fill)%>
-            <%elsif trip.sport == "Skiing/Snowboarding"%>
-              <%= cl_image_tag("skiing_2_da5gzs", crop: :fill)%>
-            <%elsif trip.sport == "Paragliding"%>
-              <%= cl_image_tag("paragliding_1_xkjskz", crop: :fill)%>
-            <%else trip.sport == "Mountain Bike"%>
-              <%= cl_image_tag("bike_2_rura79", crop: :fill)%>
-            <%end%>
+          <div id="banner-image" class="col-lg-8 col-md-6 col-sm-4 d-flex justify-content-center bg-primary" style="border-radius: 0 14px 14px 0">
+          <%# PUT THE CODE BELOW INTO A PARTIAL AND USE CASE WHEN %>
+          <%if trip.sport == "Surfing"%>
+            <%= cl_image_tag("surfing_3_pa7grz", crop: :fill)%>
+          <%elsif trip.sport == "Skateboarding"%>
+            <%= cl_image_tag("banner-sakte_hdolgx", crop: :fill)%>
+          <%elsif trip.sport == "Hiking"%>
+             <%= cl_image_tag("hikking_2_akq5yy", crop: :fill)%>
+          <%elsif trip.sport == "Skiing/Snowboarding"%>
+            <%= cl_image_tag("skiing_2_da5gzs", crop: :fill)%>
+          <%elsif trip.sport == "Paragliding"%>
+            <%= cl_image_tag("paragliding_1_xkjskz", crop: :fill)%>
+          <%else trip.sport == "Mountain Bike"%>
+            <%= cl_image_tag("bike_2_rura79", crop: :fill)%>
+          <%end%>
           </div>
-        </div>
       </div>
-    <%end%>
+    <% end %>
   </div>
 </div>
