@@ -44,21 +44,12 @@
   border: 3px solid $light-gray;
 }
 
-.text-secondary {
-  width: 15px;
-  padding: 0px;
-}
-
-.fa-pen-to-square{
-  position: absolute;
-    top: 89%;
-    left: 28%;
-}
-
-.fa-trash-can{
-  position: absolute;
-  top:  89%;
-  left: 31%;
+#profile-img-banner{
+  left: 79%;
+  top: -88%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 767px) {
