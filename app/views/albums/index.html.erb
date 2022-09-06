@@ -13,6 +13,10 @@
             <h5 class="card-title"><%= link_to a.trip.address, album_path(a) %></h5>
             <p class="card-text">We could leave this place for the ser write something. or not...</p>
             <p class="card-text"><small class="text-muted">Last updated <%= a.updated_at %></small></p>
+            <%#= link_to (), data: { turbo_method: :delete, turbo_confirm:
+          "You WON'T be able to recover this album and it's photos. Are you sure ?" } do %>
+            <i class="far fa-trash-alt" style="font-size: 15px;" title="Delete this Album"></i>
+          <%# end %>
           </div>
         </div>
     <% end %>
