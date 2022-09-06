@@ -45,3 +45,8 @@
   background: #4D04C4;
   color: white;
 }
+
+.checkbox_button:checked + label {
+  background-color: $tiffany-blue;
+  color: white;
+}

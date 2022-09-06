@@ -1,0 +1,10 @@
+.hidden-checkbox {
+  position: absolute;
+  transform: scale(0);
+}
+
+
+.hidden-checkbox:checked + label{
+  background-color: $tiffany-blue;
+  color: white;
+}

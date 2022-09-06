@@ -44,7 +44,7 @@
   </div>
 </div>
 
-
+<%= simple_form_for :invitation, :url => new_chatroom_path, :method => :get do |f| %>
 <div class="container w-100 mt-3">
   <div class="row justify-content-start g-6 mb-3">
     <% @trips.map do |trip| %>
@@ -71,10 +71,12 @@
               <p class="card-text"><%= trip.user.bio %></p>
               <div class="card-body d-flex">
                 <div class="col-6 d-flex justify-content-center">
-                  <%= link_to 'See Profile', user_path(trip.user), class: "card-link btn btn-primary"%>
+                  <%= f.check_box :invite, {multiple: true, class: "hidden-checkbox"}, trip.user.id %>
+                  <label class= "card-link btn btn-outline-primary rounded-pill" for="invitation_invite_<%=trip.user.id%>">Invite</label>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a>
+                  <%= link_to 'See Profile', user_path(trip.user), class: "card-link btn btn-outline-secondary rounded-pill"%>
+                  <%# <a href="#" class="card-link"><i class="fa-regular fa-heart"></i></a> %>
                 </div>
               </div>
             </div>
@@ -83,6 +85,8 @@
       <%end%>
     <% end %>
   </div>
+  <%= f.submit :Chatroom %>
+<% end %>
 
 
 
