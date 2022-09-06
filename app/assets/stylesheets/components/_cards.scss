@@ -145,3 +145,9 @@
     width: 100%;
   }
 }
+
+// Card for Albums index (all albums)
+
+#albums-card:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
