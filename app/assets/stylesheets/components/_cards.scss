@@ -70,6 +70,14 @@
   }
 }
 
+.card-homepg {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  }
 // Notification Cards
 
 .card-align{
@@ -83,9 +91,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 50%;
-  text-align: start;
-  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .accepted {
@@ -93,11 +101,18 @@
   width: 100%;
 }
 
-
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+}
+
+.card-homepg p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
 .card-product p {
@@ -106,6 +121,10 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-homepg .card-infos-home {
+  padding: 16px;
 }
 
 .card-product .card-product-infos {
@@ -121,7 +140,6 @@
     width: 100%;
   }
 }
-
 
 @media only screen and (max-width: 765px) {
   .card-product{
@@ -150,4 +168,16 @@
 
 #albums-card:hover {
   box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+.card-homepg img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-homepg h2 {
+  width: 50%;
+  text-align: start;
+  border-radius: 5px;
 }
