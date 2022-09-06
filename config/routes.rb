@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: %i[index create show]
-  resources :albums, only: %i[show edit update destroy] do
-    member do
-      delete :delete_image_attachment
-    end
-  end
+  resources :albums, only: %i[index show edit update destroy] # do
+  #   member do
+  #     delete :delete_photo_attachment
+  #   end
+  # end
 
   get '/search', to: 'trips#search', as: :search
 end

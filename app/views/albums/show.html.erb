@@ -1,8 +1,10 @@
 <div class="container">
   <% if @album.photos.attached? %>
-    <% @album.photos.each do |photo| %>
+    <% @album.photos.order("created_at DESC").each do |photo| %>
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%# <%= link_to 'Delete Photo', delete_image_attachment_album_path(photo.signed_id), data: {turbo_method: :delete, turbo_confirm: "Are you sure"}  %>
+      <%= link_to photo.purge, data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?' } do %>
+        <i class="far fa-trash-alt" style="font-size: 15px;" title="Delete this file"></i>
+      <% end %>
     <% end %>
   <% else %>
     <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">

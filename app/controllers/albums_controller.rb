@@ -1,5 +1,10 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[show edit update destroy]
+
+  def index
+    @album = policy_scope(Album)
+  end
+  
   def show
     authorize @album
   end
