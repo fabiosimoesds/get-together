@@ -44,33 +44,23 @@
   border: 3px solid $light-gray;
 }
 
-#trip-img {
-  vertical-align: middle;
-  position: relative;
-  transform: translateX(32px);
-  width: 157px;
+.text-secondary {
+  width: 15px;
+  padding: 0px;
 }
 
-#profile-img-banner {
-    vertical-align: middle;
-    position: relative;
-    width: 152px;
-    height: 127px;
-    top: -94%;
-    left: 82%;
+.fa-pen-to-square{
+  position: absolute;
+    top: 88%;
+    left: 70%;
 }
 
+.fa-trash-can{
 
-#profile-img-search {
-    vertical-align: middle;
-    position: relative;
-    width: 152px;
-    height: 127px;
-    top: -50%;
-    left: 72%;
+  position: absolute;
+  top: 88%;
+  left: 65%;
 }
-
-
 
 @media screen and (max-width: 767px) {
 	#profile-img-banner {
