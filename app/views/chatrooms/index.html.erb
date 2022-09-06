@@ -1,13 +1,17 @@
-<div class="container">
-    <ul>
-      <% @chatrooms.each do |chatroom| %>
-        <% chatroom.invitations.each do |invitation| %>
-          <% if invitation.asker == current_user || invitation.receiver == current_user %>
-          <div class="chatroom-list">
-            <li><%= link_to chatroom.name, chatroom_path(chatroom) %></li>
+<div class="container card-align">
+  <h1 class="m-3">Your Chatrooms</h1>
+    <% @chatrooms.order("created_at DESC").each do |chat| %>
+      <% chat.invitations.each do |invitation| %>
+        <% if invitation.asker == current_user || invitation.receiver == current_user %>
+          <div class="card-product row mb-3" id="albums-card">
+            <div class="card-product accepted mb-3">
+              <div class="card-product-infos">
+                <h2><%= link_to chat.name, chatroom_path(chat) %></h2>
+                <p>Created at: <%= chat.created_at %></p>
+              </div>
+            </div>
           </div>
-          <% end %>
         <% end %>
       <% end %>
-    </ul>
+    <% end %>
 </div>
