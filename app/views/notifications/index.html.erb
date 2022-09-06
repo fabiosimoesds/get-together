@@ -1,20 +1,35 @@
-<div class="container">
-  <h1>Teste</h1>
-
-  <% @notifications.order("created_at DESC").each do |notification| %>
-      <% @invitation = notification.params[:id] %>
-      <% if @invitation %>
-        <%= notification.params[:invitation] %>
-        <%= simple_form_for @invitation do |f| %>
-          <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
-          <%= f.submit 'Confirm' %>
+<div class="container card-align">
+  <h1 class="m-3">Your Notifications</h1>
+    <% @notifications.order("created_at DESC").each do |notification| %>
+        <% @invitation = notification.params[:id] %>
+        <div class="card-product row mb-3">
+        <% if @invitation %>
+          <div class="card-product-infos row">
+            <h2>Chat Room Invitation</h2>
+            <p><%= notification.params[:invitation] %></p>
+            <div class="row m-0">
+              <div class="col-sm-6 col-md-3">
+                <%= simple_form_for @invitation do |f| %>
+                  <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
+                  <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+                <% end %>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <%= simple_form_for @invitation do |f| %>
+                  <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
+                  <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+        <div class="card-product accepted mb-3">
+          <div class="card-product-infos">
+            <h2>Invitation Accepted</h2>
+            <p><%= notification.params[:note] %></p>
+          </div>
+        </div>
         <% end %>
-        <%= simple_form_for @invitation do |f| %>
-          <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
-          <%= f.submit 'Reject' %>
-        <% end %>
-      <% else %>
-        <%= notification.params[:note] %>
-      <% end %>
-  <% end %>
+        </div>
+    <% end %>
 </div>
