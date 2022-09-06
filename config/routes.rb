@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: %i[index create show]
-  resources :albums, only: %i[show edit update destroy] do
+  resources :albums, only: %i[index show edit update destroy] do
     member do
-      delete :delete_image_attachment
+      delete :delete_photo_attachment
     end
   end
 
