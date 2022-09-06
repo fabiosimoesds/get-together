@@ -31,10 +31,26 @@
   </div>
     <div class="row">
       <div class="col-sm-12 col-md-6 text-center">
-        <form action='<%= new_chatroom_path %>' method="GET">
-          <input type="hidden" name="user" value=<%=@user.id%>>
-          <input type="submit" value="Invite" class="rounded-pill my-button">
-        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary rounded-pill" data-modal-target="show-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Invite
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-controller="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Chatroom name:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <%= render "shared/new_chatroom"%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-12 col-md-6 text-center">
         <%= link_to 'Favourite', '#', class: "border border-secondary rounded-pill my-button outline" %>
