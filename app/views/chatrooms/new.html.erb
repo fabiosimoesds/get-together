@@ -1,8 +1,11 @@
 <div class="container">
   <%= simple_form_for @chatroom do |f| %>
   <%= f.input :name %>
-  <%#= f.input :user, :as => :hidden, :input_html => { :value => params[:user] } %>
-  <%= f.input :user_array, :as => :hidden, :input_html => { :value => params[:invitation][:invite] } %>
+  <% if params[:user] %>
+    <%= f.input :user, :as => :hidden, :input_html => { :value => params[:user] } %>
+  <% else %>
+    <%= f.input :user_array, :as => :hidden, :input_html => { :value => params[:invitation][:invite] } %>
+  <% end %>
   <%= f.submit %>
   <% end %>
 </div>
