@@ -18,7 +18,11 @@
 
   <body>
     <div class="d-flex flex-column min-vh-100">
+    <% if current_page?(controller: 'pages', action: 'home')%>
+      <%= render 'shared/navbar_home' %>
+    <% else %>
       <%= render 'shared/navbar' %>
+    <% end %>
       <%= render 'shared/flashes' %>
       <article class="flex-grow-1">
         <%= yield %>

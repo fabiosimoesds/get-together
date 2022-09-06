@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon-home fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar" %>
+  <div class="container-fluid">
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user), class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dr1gsplto/image/upload/v1662142914/development/IMG-20220830-WA0018_qaul9a.jpg" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dr1gsplto/image/upload/v1662142914/development/IMG-20220830-WA0018_qaul9a.jpg" %>
+      <% end %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Trips", trips_path , class: "nav-buttons nav-link bg-primary rounded-pill" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Trip Groups", chatrooms_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
+          </li>
+          <li class="nav-item position-relative">
+            <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
+            <div class="notification" data-notification-subscription-target="notify"></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

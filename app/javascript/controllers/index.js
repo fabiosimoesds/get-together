@@ -24,3 +24,5 @@ application.register("typed-js", TypedJsController)
 
 import NotificationSubscriptionController from "./notification_subscription_controller"
 application.register("notification-subscription", NotificationSubscriptionController)
+
+
