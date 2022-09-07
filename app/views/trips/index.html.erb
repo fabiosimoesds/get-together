@@ -11,9 +11,9 @@
   <div class="row">
     <% @trips.each do |trip| %>
       <div id="bordenha" class="col-12 d-flex justify-content-center shadow" style="margin-bottom: 20px;">
-          <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary" style="border-radius: 14px 0 0 14px;">
-            <div class="row position relative">
-              <div class="col-12 display-inline text-white ps-5 mt-2"><h2><%= trip.address%></h2></div>
+          <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary position-relative" style="border-radius: 14px 0 0 14px;">
+            <div class="row">
+              <div class="col-12 display-inline text-white ps-5 mt-2"><h2 class="trip-name"><%= trip.address%></h2></div>
               <div class="col-12 display-inline text-white ps-5"><p>From: <%= trip.start_date %></p>
                 <p>To: <%= trip.end_date %></p>
                 <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", style: "border-radius: 12px; margin-bottom: 9px;" %>
@@ -24,7 +24,7 @@
               </div>
             </div>
             <%if trip.user.avatar.key%>
-                <%= cl_image_tag(trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "position-relative avatar-position", id: "profile-img-banner") %>
+                <%= cl_image_tag(trip.user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-position", id: "profile-img-banner") %>
             <%else %>
              <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="avatar-large" id="profile-img-banner" alt="">
             <%end%>
