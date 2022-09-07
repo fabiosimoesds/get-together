@@ -1,12 +1,14 @@
 <div class="container w-50 mt-5">
   <div class="shadow rounded-3 p-4 bg-white mt-2">
-    <h2 class="text-center mb-5">Get Together</h2>
+    <h2 class="text-center mb-5"><strong>Get Together</strong></h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
+        <%= f.label :email %>
         <%= f.input :email,
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
+        <%= f.label :password %>
         <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
@@ -14,9 +16,7 @@
       </div>
 
       <div class="container text-center">
-        <div class="btn btn-primary w-25">
-          <%= f.button :submit, "Log in" %>
-        </div>
+          <%= f.button :submit, "Log in", class: "btn btn-primary nav-buttons w-25 mb-3 rounded-pill"  %>
       </div>
 
     <% end %>
