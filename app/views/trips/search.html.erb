@@ -22,15 +22,15 @@
           <%# PUT THE CODE BELOW INTO A PARTIAL AND USE CASE WHEN %>
           <%if @trip.sport == "Surfing"%>
             <%= cl_image_tag("surfing_3_pa7grz", crop: :fill)%>
-          <%elsif trip.sport == "Skateboarding"%>
+          <%elsif @trip.sport == "Skateboarding"%>
             <%= cl_image_tag("banner-sakte_hdolgx", crop: :fill)%>
-          <%elsif trip.sport == "Hiking"%>
+          <%elsif @trip.sport == "Hiking"%>
              <%= cl_image_tag("hikking_2_akq5yy", crop: :fill)%>
-          <%elsif trip.sport == "Skiing/Snowboarding"%>
+          <%elsif @trip.sport == "Skiing/Snowboarding"%>
             <%= cl_image_tag("skiing_2_da5gzs", crop: :fill)%>
-          <%elsif trip.sport == "Paragliding"%>
+          <%elsif @trip.sport == "Paragliding"%>
             <%= cl_image_tag("paragliding_1_xkjskz", crop: :fill)%>
-          <%else trip.sport == "Mountain Bike"%>
+          <%else @trip.sport == "Mountain Bike"%>
             <%= cl_image_tag("bike_2_rura79", crop: :fill)%>
           <%end%>
         </div>
@@ -43,7 +43,7 @@
     </div>
 <div class="row">
   <div class="container w-100 mt-3">
-  <%= simple_form_for :invitation, :url => new_chatroom_path, :method => :get do |f| %>
+  <%= simple_form_for :invitation, :url => chatrooms_path, :method => :post do |f| %>
     <div class="row justify-content-center g-4 mb-3">
       <% @trips.map do |trip| %>
         <% if trip.start_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime) || trip.end_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime)%>
@@ -69,8 +69,8 @@
                 <p class="card-text"><%= trip.user.bio %></p>
                 <div class="card-body d-flex">
                   <div class="col-6 d-flex justify-content-center">
-                    <%= f.check_box :invite, {multiple: true, class: "hidden-checkbox"}, trip.user.id %>
-                    <label class= "card-link btn btn-outline-primary rounded-pill" for="invitation_invite_<%=trip.user.id%>">Invite</label>
+                    <%= f.check_box :user_array, {multiple: true, class: "hidden-checkbox"}, trip.user.id %>
+                    <label class= "card-link btn btn-outline-primary rounded-pill" for="invitation_user_array_<%=trip.user.id%>">Invite</label>
                   </div>
                   <div class="col-6 d-flex justify-content-center">
                     <%= link_to 'See Profile', user_path(trip.user), class: "card-link btn btn-outline-secondary rounded-pill"%>
@@ -90,9 +90,7 @@
  <button type="button" id="chatroom-btn" class="btn btn-primary nav-buttons rounded-pill" data-modal-target="show-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Create Chatroom
   </button>
-<% end %>
 </div>
-
   <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-controller="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -103,17 +101,12 @@
       </div>
       <div class="modal-body">
         <div class="container">
-              <%= simple_form_for @chatroom do |f| %>
-                <%= f.input :name %>
-          <% @trips.map do |trip| %>
-              <% user = trip.user.id %>
-                <%= f.input :user, :as => :hidden, :input_html => { :value => user } %>
-          <% end %>
-                <div class="modal-footer">
-                  <%= f.submit "Create Chatroom", class: "btn btn-primary"%>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-              <% end %>
+        <%= f.input :name %>
+          <div class="modal-footer">
+          <%= f.submit :Chatroom, class: "btn btn-primary nav-buttons rounded-pill" %>
+          <button type="button" class="btn btn-secondary nav-buttons rounded-pill" data-bs-dismiss="modal">Cancel</button>
+  <% end %>
+          </div>
         </div>
       </div>
     </div>

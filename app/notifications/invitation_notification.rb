@@ -14,7 +14,7 @@ class InvitationNotification < Noticed::Base
 
   # Add required params
   #
-  param :invitation
+  param :invite
   param :id
 
   # Define helper methods to make rendering easier.
