@@ -15,14 +15,18 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
+    if params[:invitation]
+      @chatroom = Chatroom.new(name: params[:invitation][:name])
+    else
+      @chatroom = Chatroom.new(name: params[:chatroom][:name])
+    end
     authorize @chatroom
     if @chatroom.save
-      unless params[:chatroom][:user_array]
+      unless params[:invitation]
         @user = User.find(params[:chatroom][:user])
         @users_array = [@user.id]
       else
-        @users_array = params[:chatroom][:user_array].split
+        @users_array = params[:invitation][:user_array]
         @users_array = @users_array.reject { |id| id == "0" }
       end
       @users_array.each do |user_id|
@@ -32,10 +36,10 @@ class ChatroomsController < ApplicationController
         @invitation.asker = current_user
         @invitation.receiver = @user
         @invitation.save!
-        InvitationNotification.with(invitation: "You were invited to #{@chatroom.name} Chatroom", id: @invitation).deliver(@user)
+        InvitationNotification.with(invite: "You were invited to #{@chatroom.name} Chatroom", id: @invitation).deliver(@user)
         NotificationChannel.broadcast_to(
           @user,
-          Notification.last.params[:invitation]
+          Notification.last.params[:invite]
         )
       end
       redirect_to chatroom_path(@chatroom)
@@ -44,9 +48,4 @@ class ChatroomsController < ApplicationController
     end
   end
 
-  private
-
-  def chatroom_params
-    params.require(:chatroom).permit(:name)
-  end
 end

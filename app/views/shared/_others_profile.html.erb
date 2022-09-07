@@ -36,26 +36,35 @@
           Invite
         </button>
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-controller="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Chatroom name:</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                  <%= render  template: "/chatrooms/new"%>
-                </div>
+      <div class="modal fade" id="staticBackdrop" data-controller="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" id="modal-setup">
+          <div class="modal-content modal-radius">
+            <div class="modal-header" style="position: relative;">
+              <h5 class="modal-title" id="staticBackdropLabel" style="position: absolute; left: 35%; top: 36%;">Chatroom name</h5>
+              <button type="button" class="btn-close btn btn-primary nav-buttons rounded-pill" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                    <%= simple_form_for @chatroom do |f| %>
+                      <%= f.input :name, :input_html => { class: "modal-insert" } %>
+                <% @trips.map do |trip| %>
+                    <% user = trip.user.id %>
+                      <%= f.input :user, :as => :hidden, :input_html => { :value => user } %>
+                <% end %>
+                      <div class="modal-footer">
+                        <%= f.submit "Create Chatroom", class: "btn btn-primary my-button nav-buttons rounded-pill", id: "chatroom-btn"%>
+                        <button type="button" class="btn btn-secondary nav-buttons rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                      </div>
+                    <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <div class="col-sm-12 col-md-6 text-center">
-        <%= link_to 'Favourite', '#', class: "border border-secondary rounded-pill my-button outline" %>
+        <%= link_to 'Favourite', '#', class: "border border-secondary nav-buttons rounded-pill my-button outline" %>
       </div>
-  </div>
 </div>
 
 <div class="container mt-5">
