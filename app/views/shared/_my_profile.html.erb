@@ -66,12 +66,14 @@
                       item_wrapper_class: 'category-item',
                       input_html: {class: 'category-selector'},
                       collection: Trip::SPORTS %>
-          <div class="row">
+          <div class="row" data-controller="datapicker">
             <div class="col-12">
-              <%= t.input :start_date, as: :string, input_html: { id: "range_start" } %>
+              <label for="">Start Date: </label>
+              <%= t.input :start_date, as: :string, input_html: { "data-datapicker-target": "start" } %>
             </div>
             <div class="col-12">
-              <%= t.input :end_date, as: :string, input_html: { id: "range_end" } %>
+              <label for="">End Date: </label>
+              <%= t.input :end_date, as: :string, input_html: { "data-datapicker-target": "end" } %>
             </div>
           </div>
           <div class="text-center">

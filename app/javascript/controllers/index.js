@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import DatapickerController from "./datapicker_controller"
+application.register("datapicker", DatapickerController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -19,10 +22,8 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import TypedJsController from "./typed_js_controller"
-application.register("typed-js", TypedJsController)
-
 import NotificationSubscriptionController from "./notification_subscription_controller"
 application.register("notification-subscription", NotificationSubscriptionController)
 
-
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)

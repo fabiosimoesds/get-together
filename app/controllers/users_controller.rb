@@ -28,13 +28,17 @@ class UsersController < ApplicationController
   def update
     authorize @user
     @user.update(user_params)
+    sports = params[:user][:sport_one].reject { |sport| sport == "0" }
+    @user.update(sport_one: sports[0])
+    @user.update(sport_two: sports[1])
+    @user.update(sport_three: sports[2])
     redirect_to user_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:avatar, :banner, :bio, :sport_one, :sport_two, :sport_three)
+    params.require(:user).permit(:avatar, :banner, :bio)
   end
 
   def set_user

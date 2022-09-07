@@ -1,3 +1,5 @@
+// Invite Check Box
+
 .hidden-checkbox {
   position: absolute;
   transform: scale(0);
@@ -6,5 +8,18 @@
 
 .hidden-checkbox:checked + label{
   background-color: $tiffany-blue;
+  color: white;
+}
+
+// Edit User - Sports
+
+.hidden-checkbox-user {
+  position: absolute;
+  transform: scale(0);
+}
+
+
+.hidden-checkbox-user:checked + label{
+  background-color: $secondary;
   color: white;
 }

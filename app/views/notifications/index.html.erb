@@ -9,16 +9,18 @@
             <p><%= notification.params[:invitation] %></p>
             <div class="row m-0">
               <div class="col-sm-6 col-md-3">
-                <%= simple_form_for @invitation do |f| %>
-                  <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
-                  <%= f.submit 'Confirm', class: 'btn btn-primary' %>
-                <% end %>
-              </div>
-              <div class="col-sm-6 col-md-3">
-                <%= simple_form_for @invitation do |f| %>
-                  <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
-                  <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
-                <% end %>
+                <%# <div class="fazer condicao"> %>
+                  <%= simple_form_for @invitation do |f| %>
+                    <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
+                    <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+                  <% end %>
+                                </div>
+                                <div class="col-sm-6 col-md-3">
+                  <%= simple_form_for @invitation do |f| %>
+                    <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
+                    <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
+                  <% end %>
+                <%# </div>  %>
               </div>
             </div>
           </div>
