@@ -1,5 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top" data-controller="notification-subscription" data-notification-subscription-user-id-value="<%= current_user.id if current_user %>">
-<%# class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top" data-controller="notification-subscription" data-notification-subscription-user-id-value="<%= current_user.id if current_user%>">
+<%# data-controller="notification-subscription" data-notification-subscription-user-id-value="<%= current_user.id if current_user %>
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "navbar-brand" do %>
@@ -26,7 +26,13 @@
           </li>
           <li class="nav-item position-relative">
             <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
-            <div class="notification" data-notification-subscription-target="notify"></div>
+            <div class="notification" data-notification-subscription-target="notify" ></div>
+            <% if Notification.where(recipient: @current_user).where(read_at: nil).count > 0 %>
+              <div class="notification active"></div>
+            <% else %>
+              <div class="notification"></div>
+              <%# data-notification-subscription-target="notify %>
+            <% end %>
           </li>
         <% end %>
       </ul>
