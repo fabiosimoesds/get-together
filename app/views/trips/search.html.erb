@@ -42,8 +42,8 @@
       <h2>Invite buddies to meet!</h2>
     </div>
 <div class="row">
-  <%= simple_form_for :invitation, :url => new_chatroom_path, :method => :get do |f| %>
   <div class="container w-100 mt-3">
+  <%= simple_form_for :invitation, :url => new_chatroom_path, :method => :get do |f| %>
     <div class="row justify-content-center g-4 mb-3">
       <% @trips.map do |trip| %>
         <% if trip.start_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime) || trip.end_date.to_datetime.between?(@trip.start_date.to_datetime, @trip.end_date.to_datetime)%>
@@ -86,7 +86,8 @@
   </div>
 </div>
    <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary rounded-pill" data-modal-target="show-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <div class="d-flex m-5">
+ <button type="button" class="btn btn-primary rounded-pill" data-modal-target="show-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Create Chatroom
   </button>
 <% end %>
