@@ -1,7 +1,23 @@
-<div class="container">
+<div class="container container-edit mt-3">
   <%= simple_form_for @user do |f| %>
+    <h2>Profile Avatar:</h2>
     <%= f.input :avatar, as: :file %>
+    <h2>Profile Banner:</h2>
     <%= f.input :banner, as: :file %>
-    <%= f.submit %>
+    <h2>Bio:</h2>
+    <%= f.input :bio, label: "Bio" %>
+    <h2>Favourites Sports(3):</h2>
+   <% Trip::SPORTS.each do |sport| %>
+    <% if sport == 'Skiing/Snowboarding' %>
+      <% sport_id =  'skiingsnowboarding' %>
+    <% elsif sport.downcase == 'mountain bike' %>
+      <% sport_id = 'mountain_bike'%>
+    <% else %>
+      <% sport_id = sport.downcase%>
+    <% end %>
+      <%= f.check_box :sport_one, {multiple: true, class: "hidden-checkbox-user"}, sport %>
+      <label class='m-1 btn btn-outline-secondary rounded-pill' for="user_sport_one_<%=sport_id%>"><%= sport %></label>
+    <% end %>
+    <div class="ms-1 mt-3 col-12"><%= f.submit 'Update', class: 'btn btn-primary text-white rounded-pill' %></div>
   <% end %>
 </div>

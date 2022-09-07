@@ -28,12 +28,17 @@
   margin-bottom: 4px;
 }
 
+
 // .category-selector:checked + label {
-//   color: $tiffany-blue !important;
-// }
+  //   color: $tiffany-blue !important;
+  // }
 
 .category-selector:checked + label {
   background-color: $deep-jungle-green;
+}
+
+.form-check-input.is-valid ~ .form-check-label {
+    color: white;
 }
 
 // #trip_sport_nada + label {
