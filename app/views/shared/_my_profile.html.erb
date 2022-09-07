@@ -7,7 +7,7 @@
         <div class="mini-banner position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://fasttechnologies.com/wp-content/uploads/2017/01/placeholder-banner.png);"></div>
       <% end %>
       <% if @user.avatar.key %>
-        <div class="text-center">
+        <div class="text-center" >
           <%= cl_image_tag(@user.avatar.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "avatar-large position-relative avatar-position") %>
           <%= link_to edit_user_path(@user) do %>
             <i class="fa-solid fa-pen-to-square"></i>
@@ -20,8 +20,14 @@
           <% end %>
         </div>
       <% end %>
-      <h2><%= "#{@user.first_name} #{@user.last_name}" %><i class="fa-solid fa-pen-circle"></i></h2>
-      <p><%= @user.bio %></p>
+      <div class="username-container w-100" style="text-align: -webkit-center;">
+        <h2><%= "#{@user.first_name} #{@user.last_name}" %><i class="fa-solid fa-pen-circle"></i></h2>
+      </div>
+
+
+      <div class="user-bio-container w-100 h-25">
+        <p><%= @user.bio %></p>
+      </div>
     </div>
     <div class="col-6 border-start border-end border-primary">
 
@@ -77,7 +83,7 @@
             </div>
           </div>
           <div class="text-center">
-            <%= t.submit "Add Trip", class: 'btn btn-primary text-white rounded-pill' %>
+            <%= t.submit "Add Trip", class: 'btn btn-primary nav-buttons text-white rounded-pill' %>
           </div>
         <% end %>
       </div>
