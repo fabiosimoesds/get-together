@@ -35,6 +35,17 @@
   transition-duration: 0.2s;
 }
 
+.trip-name {
+  font-size: 2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 2.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-right: 8px;
+}
+
 #search-card:hover {
   transform: translateY(-2px);
 }
