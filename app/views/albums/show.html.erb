@@ -4,12 +4,12 @@
   "You WON'T be able to RECOVER the album and it's photos. Are you sure you want to Delete?" } %>
 </div>
 
-<div class="container">
+<div class="container w-100">
   <div class="row ">
     <% if @album.photos.attached? %>
-        <% @album.photos.order("created_at DESC").each do |photo| %>
-    <div class="col-4 border box-shadow">
-      <div class="card profile-card-5">
+      <% @album.photos.order("created_at DESC").each do |photo| %>
+        <div class="col-4 border box-shadow">
+          <div class="card profile-card-5">
             <div class="card-img-block">
               <%= cl_image_tag photo.key, height: 260, crop: :fill, style: 'width: auto;' %>
             </div>
@@ -19,8 +19,8 @@
                 <i class="far fa-trash-alt" style="font-size: 15px;" title="Delete this file"></i>
               <% end %>
             </div>
-        <% end %>
-    </div>
+      <% end %>
+          </div>
     <% else %>
       <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
     <% end %>
