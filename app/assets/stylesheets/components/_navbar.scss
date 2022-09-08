@@ -57,6 +57,21 @@ html {
   display: inline;
 }
 
+// Icons for Trips, Chatrooms and Notifications
+.note-icon {
+  left: 58px;
+  font-size: 30px;
+}
+
+.chatroom-icon {
+  font-size: 30px;
+}
+
+.trip-icon {
+  position: relative;
+  left: -60px;
+  font-size: 30px;
+}
 .navbar-name {
   font-family: 'Roboto', sans-serif;
   width: inherit;
