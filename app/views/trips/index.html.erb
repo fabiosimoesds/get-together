@@ -9,7 +9,7 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <div class="row">
-    <% @trips.each do |trip| %>
+    <% @trips.order("start_date DESC").each do |trip| %>
       <div id="bordenha" class="col-12 d-flex justify-content-center shadow" style="margin-bottom: 20px;">
           <div class="col-lg-4 col-md-6 col-sm-8 justify-content-center bg-primary position-relative" style="border-radius: 14px 0 0 14px;">
             <div class="row">
