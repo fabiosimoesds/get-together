@@ -14,7 +14,7 @@ export default class extends Controller {
           login.classList.remove('text-white-50')
     } else {
       const navButtons = document.querySelectorAll('.nav-buttons');
-        navButtons.forEach(element => element.style.color = '#00B8B5');
+        navButtons.forEach(element => element.style.color = '#CC5200');
       const logOut = document.querySelector('.nav-link.border-0.bg-transparent')
       logOut.classList.remove('text-white-50')
     }
