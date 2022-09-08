@@ -29,3 +29,87 @@
     }
   }
 }
+
+
+@media screen and (max-width: 768px) {
+	#send {
+    position: absolute;
+    top: 62%;
+    right: 69px;
+    width: 13rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+  #message_content{
+    width: 129%;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+	#send {
+    position: absolute;
+    top: 62%;
+    right: 40px;
+    width: 10rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+	#send {
+    position: absolute;
+    top: 62%;
+    right: 35px;
+    width: 7rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 412px) {
+	#send {
+    position: absolute;
+    top: 62%;
+    right: 33px;
+    width: 7rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+	#send {
+    position: absolute;
+    top: 60%;
+    right: 23px;
+    width: 7rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+	#send {
+    position: absolute;
+    top: 62%;
+    right: 20px;
+    width: 7rem;
+    color: white;
+    font-weight: bold;
+    font-size: 137%;
+    height: 3rem;
+  }
+}
