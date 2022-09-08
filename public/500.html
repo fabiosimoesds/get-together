@@ -10,20 +10,22 @@
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
+    font-size: x-large;
   }
 
   .rails-default-error-page div.dialog {
     width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+    max-width: 60em;
+    margin: 2em auto 0;
+    text-align: -webkit-center;
   }
 
   .rails-default-error-page div.dialog > div {
     border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-right-color: #FF7519;
+    border-left-color: #FF7519;
+    border-bottom-color: #CC5200;
+    border-top: #CC5200 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +35,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #CC5200;
     line-height: 1.5em;
   }
 
@@ -42,15 +44,33 @@
     padding: 1em;
     background-color: #F7F7F7;
     border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
+    border-right-color: #FF7519;
+    border-left-color: #FF7519;
+    border-bottom-color: #FF7519;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .error-img{
+  width: 360px;
+  margin-top: 17px;
+  opacity: 0.7;
+  display: flex;
+  }
+  
+  @media screen and (max-width: 430px) {
+	.error-img {
+		width: 210px;
+	}
+
+  .rails-default-error-page{
+    font-size: large;
+  }
+}
+
   </style>
 </head>
 
@@ -58,9 +78,9 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1><strong>Dear Buddy</strong>, <br>We're sorry, but something went wrong on the application.(500)</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>Contact the support to check what can be done for you. Please write a coment on what you were trying to achive before this erro occur.<br><br>Thank you very much for your patience and help.<br><br>Have a good one! See you.<br><br>Regards, <br><br>Get Together Tech Team <img class="error-img" src="https://res.cloudinary.com/dr1gsplto/image/upload/v1662648293/production/GT_2_f0qmwf.png" alt=""><br><br><strong>tech.team@get-together.me</strong></p>
   </div>
 </body>
 </html>
