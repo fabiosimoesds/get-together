@@ -27,12 +27,14 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.label :address %>
       <%= f.input :address, required: true %>
+      <%= f.label :personal_photo %>
       <%= f.input :avatar, as: :file %>
+      <%= f.label :background_photo %>
       <%= f.input :banner, as: :file %>
     </div>
 
     <div class="container text-center">
-      <%= f.button :submit, "Sign up", class: "btn btn-primary nav-buttons w-25 mb-3 rounded-pill"  %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary modal-cancel-btn text-light w-25 mb-3 rounded-pill"  %>
     </div>
   <% end %>
   <%= render "devise/shared/links" %>

@@ -16,10 +16,11 @@
               <div class="col-12 display-inline text-white ps-5 mt-2"><h2 class="trip-name"><%= trip.address%></h2></div>
               <div class="col-12 display-inline text-white ps-5"><p>From: <%= trip.start_date %></p>
                 <p>To: <%= trip.end_date %></p>
-                <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", style: "border-radius: 12px; margin-bottom: 9px;" %>
-                <div class="col-12 text-white ps-15">
-                <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "text-secondary", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete"}%>
-                <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, "#", class: "text-secondary" %>
+                <%= link_to 'Find buddies!', search_path(trip), class: "btn btn-secondary", id: "find-buddies", style: "border-radius: 12px; margin-bottom: 9px;" %>
+                <div class="col-12 text-white trash-can">
+                <%= link_to trip_path(trip), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "text-white-50" do%>
+                  <i class="fa-solid fa-trash-can "></i>
+                <% end %>
                 </div>
               </div>
             </div>
@@ -33,7 +34,7 @@
           <div id="banner-image" class="col-lg-8 col-md-6 col-sm-4 d-flex justify-content-center bg-primary" style="border-radius: 0 14px 14px 0">
           <%# PUT THE CODE BELOW INTO A PARTIAL AND USE CASE WHEN %>
           <%if trip.sport == "Surfing"%>
-            <%= cl_image_tag("surfing_3_pa7grz", crop: :fill)%> 
+            <%= cl_image_tag("surfing_3_pa7grz")%>
           <%elsif trip.sport == "Skateboarding"%>
             <%= cl_image_tag("banner-sakte_hdolgx", crop: :fill)%>
           <%elsif trip.sport == "Hiking"%>

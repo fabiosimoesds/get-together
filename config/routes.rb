@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :messages, only: %i[create]
   end
 
-  resources :trips, only: %i[index create show]
+  resources :trips, only: %i[index create show destroy]
   resources :albums, only: %i[index show edit update destroy] do
     member do
       delete :delete_photo_attachment

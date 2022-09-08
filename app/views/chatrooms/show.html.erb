@@ -1,4 +1,4 @@
-<div class="container chatroom border border-4 mb-1 rounded-3"
+<div class="container w-50 h-50 chatroom border mb-1 rounded-3"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
@@ -17,11 +17,11 @@
       </div>
     <% end %>
   </div>
-  <div class="container message-text">
+  <div class="container message-text position-relative">
     <%= simple_form_for [@chatroom, @message],
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|%>
     <%=f.input :content, :as => :text, :input_html => {:cols => 100, :rows => 2}%>
-    <%=f.button "submit", value: "Send", id:"send", class:"btn btn-primary rounded-pill"%>
+    <%=f.button "submit", value: "Send", id:"send", class:"btn btn-primary rounded-pill send-btn-chatroom" %>
     <%end%>
   </div>
 </div>

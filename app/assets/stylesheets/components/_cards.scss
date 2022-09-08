@@ -55,6 +55,13 @@
   width: fit-content;
 }
 
+.trash-can{
+  position: relative;
+  bottom: 3%;
+  left: 15px;
+  display: inline;
+}
+
 .trip-name {
   font-size: 2rem;
   text-overflow: ellipsis;
