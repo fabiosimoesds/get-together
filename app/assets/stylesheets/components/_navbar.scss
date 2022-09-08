@@ -59,7 +59,8 @@ html {
 
 // Icons for Trips, Chatrooms and Notifications
 .note-icon {
-  left: 58px;
+  position: relative;
+  left: 53px;
   font-size: 30px;
 }
 
@@ -72,6 +73,13 @@ html {
   left: -60px;
   font-size: 30px;
 }
+
+.home-icon {
+  position: relative;
+  font-size: 30px;
+  left: -114px;
+}
+
 .navbar-name {
   font-family: 'Roboto', sans-serif;
   width: inherit;
