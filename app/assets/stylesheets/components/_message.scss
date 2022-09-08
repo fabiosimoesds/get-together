@@ -3,10 +3,28 @@
   padding: 8px;
 }
 
-.sender-style, .receiver-style {
-  width: 60%;
-  max-width: 400px;
+.sender-style {
+  width: 80%;
+  max-width: 571px;
   border-radius: 4px;
   padding: 8px;
   min-height: 80px;
+  text-align: -webkit-right;
+  color: crimson;
 }
+
+.receiver-style {
+  width: 80%;
+  max-width: 571px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px
+}
+
+.message_content {
+  width: 78%;
+}
+
+// .work {
+//   text-align: justify;
+// }
