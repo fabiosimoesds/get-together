@@ -16,13 +16,13 @@
                     <% asker = i.asker.avatar.key %>
                     <% receiver = i.receiver.avatar.key %>
                     <% if asker %>
-                      <%= cl_image_tag(i.asker.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar') %>
+                      <%= cl_image_tag(i.asker.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar', style: 'border-radius: 50%;') %>
                     <% else %>
                       <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="chatroom-avatar position-relative avatar-position" alt="" style="top: 0;">
                     <% end %>
                     <% unless i.asker == i.receiver %>
                       <% if receiver %>
-                        <%= cl_image_tag(i.receiver.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar') %>
+                        <%= cl_image_tag(i.receiver.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar', style: 'border-radius: 50%;') %>
                       <% else %>
                         <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="chatroom-avatar position-relative avatar-position" alt="" style="top: 0;">
                       <% end %>

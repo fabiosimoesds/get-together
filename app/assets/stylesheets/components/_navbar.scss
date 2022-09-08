@@ -43,13 +43,13 @@ html {
 }
 
 .notification {
-  background-color: red;
+  background-color: #00D2DE;
   height: 15px;
   width: 15px;
   border-radius: 50%;
   position: absolute;
   top: 4px;
-  right: -2px;
+  right: -15px;
   display: none;
 }
 
@@ -59,7 +59,8 @@ html {
 
 // Icons for Trips, Chatrooms and Notifications
 .note-icon {
-  left: 58px;
+  position: relative;
+  left: 53px;
   font-size: 30px;
 }
 
@@ -72,6 +73,13 @@ html {
   left: -60px;
   font-size: 30px;
 }
+
+.home-icon {
+  position: relative;
+  font-size: 30px;
+  left: -114px;
+}
+
 .navbar-name {
   font-family: 'Roboto', sans-serif;
   width: inherit;
