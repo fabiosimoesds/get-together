@@ -93,17 +93,17 @@
 </div>
   <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-controller="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-setup">
+    <div class="modal-content modal-radius">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Chatroom name:</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="container">
-        <%= f.input :name %>
+        <%= f.input :name, input_html: {class: 'modal-insert'} %>
           <div class="modal-footer">
-          <%= f.submit :Chatroom, class: "btn btn-primary nav-buttons rounded-pill" %>
+          <%= f.submit "Create Chatroom", class: "btn btn-primary nav-buttons rounded-pill", id: "chatroom-btn" %>
           <button type="button" class="btn btn-secondary nav-buttons rounded-pill" data-bs-dismiss="modal">Cancel</button>
   <% end %>
           </div>
