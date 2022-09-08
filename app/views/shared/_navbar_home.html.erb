@@ -2,11 +2,11 @@
   <div class="container-fluid">
     <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "navbar-brand" do %>
-        <%= image_tag "https://res.cloudinary.com/dr1gsplto/image/upload/v1662142914/development/IMG-20220830-WA0018_qaul9a.jpg" %>
+        <%= cl_image_tag("GT_1_jfsw7c") %>
       <% end %>
     <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://res.cloudinary.com/dr1gsplto/image/upload/v1662142914/development/IMG-20220830-WA0018_qaul9a.jpg" %>
+        <%= cl_image_tag("GT_1_jfsw7c") %>
       <% end %>
     <% end %>
 
