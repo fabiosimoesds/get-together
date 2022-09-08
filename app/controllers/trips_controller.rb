@@ -45,6 +45,13 @@ class TripsController < ApplicationController
     authorize @trip
   end
 
+  def destroy
+    @trip = Trip.find(params[:id])
+    authorize @trip
+    @trip.destroy
+    redirect_to trips_path, status: :see_other
+  end
+
   private
 
   def set_trip
