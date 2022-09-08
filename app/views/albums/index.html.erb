@@ -1,24 +1,26 @@
-<div class="container card-align w-75">
-  <% @albums.each do |a| %>
-    <% if a.trip.user == current_user %>
-        <div class="card mb-3">
-          <% if a.photos.attached? %>
-            <% a.photos.first do |photo| %>
-                <%= cl_image_tag photo.key, height: 260, crop: :fill, style: 'width: auto;' %>
-                <% end %>
-          <% else %>
-            <img src="..." class="card-img-top" alt="...">
+<div class="container card-albums">
+  <div class="row justify-content-center">
+    <% @albums.each do |a| %>
+      <% if a.trip.user == current_user %>
+        <div class="card bg-dark text-white">
+          <%= link_to album_path(a), class: "card-hover-effect" do %>
+            <% if a.photos.attached? %>
+              <% photo = a.photos.first %>
+              <%= cl_image_tag photo.key, crop: :fill, style: 'width: auto;' %>
+            <% else %>
+              <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="" class="card-img">
+            <% end %>
           <% end %>
-          <div class="card-body">
+          <div class="card-img-overlay">
             <h5 class="card-title"><%= link_to a.trip.address, album_path(a) %></h5>
-            <p class="card-text">We could leave this place for the ser write something. or not...</p>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated <%= a.updated_at %></small></p>
-            <%#= link_to (), data: { turbo_method: :delete, turbo_confirm:
-          "You WON'T be able to recover this album and it's photos. Are you sure ?" } do %>
-            <i class="far fa-trash-alt" style="font-size: 15px;" title="Delete this Album"></i>
-          <%# end %>
+            <%= link_to '<i class="far fa-trash-alt" style="font-size: 15px;"></i>'.html_safe, album_path(a),
+                          data: { turbo_method: :delete, turbo_confirm:
+                          "You WON'T be able to RECOVER the album and it's photos. Are you sure you want to Delete?" } %>
           </div>
         </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

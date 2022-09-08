@@ -18,14 +18,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Trips", trips_path , class: "nav-buttons nav-link bg-primary rounded-pill" %>
+          <li class="nav-item active trip-icon">
+            <%= link_to '<i class="fa-solid fa-plane-departure"></i>'.html_safe, trips_path %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Chat Groups", chatrooms_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
+          <li class="nav-item chatroom-icon">
+            <%= link_to '<i class="fa-solid fa-message"></i>'.html_safe, chatrooms_path %>
           </li>
-          <li class="nav-item position-relative">
-            <%= link_to "Notification", notifications_path, class: "nav-buttons nav-link bg-primary rounded-pill" %>
+          <li class="nav-item position-relative note-icon">
+            <%= link_to '<i class="fa-solid fa-bell"></i>'.html_safe, notifications_path %>
             <div class="notification" data-notification-subscription-target="notify" ></div>
             <% if Notification.where(recipient: @current_user).where(read_at: nil).count > 0 %>
               <div class="notification active"></div>
