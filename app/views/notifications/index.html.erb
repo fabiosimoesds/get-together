@@ -12,13 +12,13 @@
                 <% unless notification.params[:id].confirmation %>
                   <%= simple_form_for @invitation do |f| %>
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
-                    <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+                    <%= f.submit 'Confirm', class: 'btn btn-primary rounded-pill text-light' %>
                   <% end %>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                   <%= simple_form_for @invitation do |f| %>
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
-                    <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
+                    <%= f.submit 'Reject', class: 'btn btn-outline-danger rounded-pill' %>
                   <% end %>
                 <% end %>
               </div>
