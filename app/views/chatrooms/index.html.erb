@@ -1,38 +1,33 @@
 
 <div class="container card-align">
   <h1 class="m-3">Chatrooms</h1>
-    <% @chatrooms.order("created_at DESC").each do |chat| %>
-      <% chat.invitations.each do |invitation| %>
-        <% if invitation.asker == current_user || invitation.receiver == current_user %>
-          <%= link_to chatroom_path(chat), class: 'text-decoration-none text-dark' do %>
-            <div class="card-product row mb-3">
-              <div class="card-product accepted mb-3" style="box-sizing: border-box; border-style: double; border-color: #CC5200:">
-                <div class="card-product-infos col-8 chat-half">
-                  <h2><%= chat.name %> <i class="fa-regular fa-message" style="font-size: 15px;" title="Chat!"></i></h2>
-                  <p>Created at: <%= chat.created_at %></p>
-                </div>
-                <div class="chatroom-avatar-div d-inline p-2 col-4">
-                  <% chat.invitations.each do |i| %>
-                    <% asker = i.asker.avatar.key %>
-                    <% receiver = i.receiver.avatar.key %>
-                    <% if asker %>
-                      <%= cl_image_tag(i.asker.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar', style: 'border-radius: 50%;') %>
-                    <% else %>
-                      <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="chatroom-avatar position-relative avatar-position" alt="" style="top: 0;">
-                    <% end %>
-                    <% unless i.asker == i.receiver %>
-                      <% if receiver %>
-                        <%= cl_image_tag(i.receiver.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar', style: 'border-radius: 50%;') %>
-                      <% else %>
-                        <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="chatroom-avatar position-relative avatar-position" alt="" style="top: 0;">
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
+  <% @chatrooms.order("created_at DESC").each do |chat| %>
+    <% users_array = [] %>
+    <% chat.invitations.each do |invitation| %>
+      <% if invitation.asker == current_user || invitation.receiver == current_user %>
+        <% users_array.push(invitation.asker) unless users_array.include?(invitation.asker) %>
+        <% users_array.push(invitation.receiver)%>
+      <% end %>
+    <% end %>
+      <%= link_to chatroom_path(chat), class: 'text-decoration-none text-dark' do %>
+        <div class="card-product row mb-3">
+          <div class="card-product accepted mb-3" style="box-sizing: border-box; border-style: double; border-color: #CC5200:">
+            <div class="card-product-infos col-8 chat-half">
+              <h2><%= chat.name %> <i class="fa-regular fa-message" style="font-size: 15px;" title="Chat!"></i></h2>
+              <p>Created at: <%= chat.created_at.to_date %></p>
             </div>
-          <% end %>
-        <% end %>
+            <div class="chatroom-avatar-div d-inline p-2 col-4">
+              <%  %>
+            <% users_array.each do |user| %>
+              <% if user.avatar.key %>
+                <%= cl_image_tag(user.avatar.key, width: 30, height: 30, crop: :thumb, gravity: :face, class: 'chatroom-avatar') %>
+              <% else %>
+                <img src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg" class="chatroom-avatar position-relative" alt="" style="top: 0;">
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
 </div>
