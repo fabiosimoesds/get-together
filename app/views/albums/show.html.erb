@@ -2,13 +2,15 @@
   <div class="row">
     <div class="col-6 album-name">
        <%= link_to "See all Albums", albums_path, class: "border border-secondary nav-buttons rounded-pill my-button outline", id: "see-albums" %>
-      <%= @album.name %>
+      <h2 style="text-align: -webkit-center;"><%= @album.name %></h2>
     </div>
+    <% if current_user == @album.trip.user %>
     <div class="col-6 album-edit-delete">
       <%= link_to '<i class="fa-solid fa-arrow-up-from-bracket btn btn-primary rounded-pill" style="width: 100px;"></i>'.html_safe, edit_album_path(@album) %>
       <%= link_to '<i class="far fa-trash-alt" style="font-size: 27px; position: relative; top: 5px; right: -25px; color: #9d0101;";"></i>'.html_safe, album_path(@album), data: { turbo_method: :delete, turbo_confirm:
       "You WON'T be able to RECOVER the album and it's photos. Are you sure you want to Delete?" } %>
     </div>
+    <% end %>
   </div>
 </div>
 
@@ -18,13 +20,14 @@
       <% @album.photos.order("created_at DESC").each do |photo| %>
       <div class="col-3 mb-3 show-album">
           <%= cl_image_tag photo.key, height: 180, width: 250, crop: :fill, class: 'background-image', style: 'border-style: groove; border-color: $tiffany-blue; border-radius: 5px;' %>
-          <div class="trash-photo">
-            <%= link_to delete_photo_attachment_album_path(photo), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?' } do %>
-              <i class="far fa-trash-alt" style="font-size: 15px; color: #9d0101"></i>
-            <% end %>
-          </div>
         <div class="card-body">
           <p class="card-text"></p>
+            <%# <i class="fa-solid fa-pen-to-square"></i> %>
+            <% if current_user == @album.trip.user %>
+              <%= link_to delete_photo_attachment_album_path(photo), data: { turbo_method: :delete, turbo_confirm: 'Are you sure ?' } do %>
+                <i class="far fa-trash-alt" style="font-size: 15px; color: #9d0101"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <% end %>

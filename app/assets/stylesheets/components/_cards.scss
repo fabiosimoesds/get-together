@@ -17,6 +17,7 @@
   }
 }
 
+
 .card-albums {
   border-radius: 15px;
   text-align: center;
@@ -31,20 +32,35 @@
     -webkit-box-orient: vertical;
     width: 150px;
     margin-bottom: 0;
+    padding-bottom: 2px;
+    padding-bottom: 28px;
+    margin-bottom: 5px;
   }
   a{
     text-decoration: none;
+  }
+  h5{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 150px;
+    margin-bottom: 0;
   }
 }
 
 .album-name {
   position: relative;
-  left: 150px;
+  left: 308px;
 }
+
 
 .album-edit-delete {
   position: relative;
-  left: 170px;
+  left: 308px;
+  top: 11px;
 }
 
 // Seacrch-card
@@ -230,4 +246,16 @@
 
 .photo-album-card {
   margin-top: 17px;
+}
+
+.trip-name-profile {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 5.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding-right: 8px;
+  padding-top: 34px;
 }
