@@ -1,16 +1,15 @@
 
 <div class="container card-albums">
-  <div class="row">
+  <div class="row justify-content-center">
     <% @albums.each do |album| %>
-      <div class="col-3">
-        <% if album.trip.user == current_user %>
+      <% if album.trip.user == current_user %>
+        <div class="col-3">
           <div class="card" style="width: 18rem;">
             <%= link_to album_path(album), class: "card-hover-effect" do %>
               <% if album.photos.attached? %>
-                <% photo = album.photos.first %>
-                <%= cl_image_tag photo.key, height: 180, width: 250, crop: :fill %>
+                <%= cl_image_tag album.photos.first.key, height: 180, width: 250, crop: :fill, class: "photo-album-card"%>
               <% else %>
-                <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
+                <img style="height: 180px; width: 250px; crop: fill; margin-top: 17px;" src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" alt="">
               <% end %>
             <% end %>
             <div class="card-body">
@@ -22,12 +21,12 @@
               <li class="list-group-item"><small>Last updated <%= album.updated_at %></small></li>
             </ul>
             <div class="card-body">
-              <%= link_to 'Add photos <i class="fa-solid fa-arrow-up-from-bracket"></i>'.html_safe, edit_album_path(album) %>
+              <%= link_to 'Add photos <i class="fa-solid fa-arrow-up-from-bracket"style="position: relative; left: -114px;"></i>'.html_safe, edit_album_path(album) %>
               <%= link_to ' Delete  <i class="far fa-trash-alt" style="font-size: 15px;"></i>'.html_safe, album_path(album), data: { turbo_method: :delete, turbo_confirm: "You WON'T be able to RECOVER the album and it's photos. Are you sure you want to Delete?" } %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
