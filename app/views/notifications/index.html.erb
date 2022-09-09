@@ -8,20 +8,20 @@
             <h2>Chat Room Invitation</h2>
             <p><%= notification.params[:invite] %></p>
             <div class="row m-0">
-              <div class="col-sm-6 col-md-3">
-                <% unless notification.params[:id].confirmation %>
+              <% if notification.params[:id][:confirmation].nil? %>
+                <div class="col-sm-6 col-md-3">
                   <%= simple_form_for @invitation do |f| %>
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
                     <%= f.submit 'Confirm', class: 'btn btn-primary' %>
                   <% end %>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
+                </div>
+                <div class="col-sm-6 col-md-3">
                   <%= simple_form_for @invitation do |f| %>
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
                     <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
                   <% end %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
           </div>
         <% else %>
