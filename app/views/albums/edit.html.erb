@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-3">
   <%= simple_form_for(@album) do |f| %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
+    <%= f.submit 'Add Photo', class: "btn btn-primary text-light rounded-pill"%>
   <% end %>
 </div>
