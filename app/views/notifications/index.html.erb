@@ -9,7 +9,7 @@
             <p><%= notification.params[:invite] %></p>
             <div class="row m-0">
               <div class="col-sm-6 col-md-3">
-                <%# <div class="fazer condicao"> %>
+                <% unless notification.params[:id].confirmation %>
                   <%= simple_form_for @invitation do |f| %>
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => true } %>
                     <%= f.submit 'Confirm', class: 'btn btn-primary' %>
@@ -20,7 +20,7 @@
                     <%= f.input :confirmation, :as => :hidden, :input_html => { :value => false } %>
                     <%= f.submit 'Reject', class: 'btn btn-outline-danger' %>
                   <% end %>
-                <%# </div>  %>
+                <% end %>
               </div>
             </div>
           </div>
