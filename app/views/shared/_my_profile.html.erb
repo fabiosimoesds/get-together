@@ -44,7 +44,7 @@
           <% @albums.first(4).each do |album| %>
             <div class="col p-2">
               <%= link_to album_path(album), class: "card-hover-effect" do %>
-                <p class="btn btn-primary rounded-pill" style="text-align: center; padding: 0; color: white; margin-bottom: 4px"><%= album.name %></p>
+                <p class="btn btn-primary rounded-pill text-white"><%= album.name %></p>
                 <% if album.photos.attached? %>
                   <%= cl_image_tag album.photos[0].key, height: 180, width: 250, crop: :fill %>
                 <% else %>
