@@ -6,7 +6,7 @@
     </div>
     <% if current_user == @album.trip.user %>
     <div class="col-6 album-edit-delete">
-      <%= link_to '<i class="fa-solid fa-arrow-up-from-bracket btn btn-primary rounded-pill" style="width: 100px;"></i>'.html_safe, edit_album_path(@album) %>
+      <%= link_to '<i class="fa-solid fa-arrow-up-from-bracket btn btn-primary rounded-pill text-white" style="width: 100px;"></i>'.html_safe, edit_album_path(@album) %>
       <%= link_to '<i class="far fa-trash-alt" style="font-size: 27px; position: relative; top: 5px; right: -25px; color: #9d0101;";"></i>'.html_safe, album_path(@album), data: { turbo_method: :delete, turbo_confirm:
       "You WON'T be able to RECOVER the album and it's photos. Are you sure you want to Delete?" } %>
     </div>
