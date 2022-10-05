@@ -80,8 +80,8 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem "capybara", ">= 3.26"
+  gem "selenium-webdriver", ">= 4.0.0"
   gem "webdrivers"
 end
 
