@@ -301,7 +301,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-  capybara
+  capybara (>= 3.26)
   cloudinary
   debug
   devise
@@ -318,7 +318,7 @@ DEPENDENCIES
   rails (~> 7.0.3, >= 7.0.3.1)
   redis (~> 4.0)
   sassc-rails
-  selenium-webdriver
+  selenium-webdriver (>= 4.0.0)
   simple_form!
   sprockets-rails
   stimulus-rails
